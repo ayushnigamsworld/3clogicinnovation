@@ -7,8 +7,8 @@ class App extends Component{
 
   render(){
     return(
-      <div className='responsive-page homepage'>
-          <section className="first-section" style={{'padding-top': 10}}>
+      <div  className='responsive-page homepage'>
+          <section className="first-section" style={{'paddingTop': 10}}>
             <Header/>
             <Home/>
           </section>
