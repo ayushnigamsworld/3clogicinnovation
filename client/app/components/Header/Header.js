@@ -1,4 +1,7 @@
-import React, { Component } from 'react';
+import React,{ Component } from 'react';
+
+import GLoginBtn from '../App/GLogin/GLoginBtn';
+
 import '../App/App.css';
 
 class Header extends Component {
@@ -9,12 +12,13 @@ class Header extends Component {
         <img src={require('../../../public/assets/img/logo.png')} className='company-logo-small'/>
         <ul className="homepage-nav-links float-right">                    
             <li className="nav-signup">
-              <a target="login-modal" className="show-modal show-signup-in-modal button btn-blue">Login</a>
+              <GLoginBtn target="login-modal" />
             </li>
         </ul>
         <div className="clear"></div>
     </nav>
-    </header>);
+    </header>
+    );
   }
 }
  
