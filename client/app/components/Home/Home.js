@@ -5,12 +5,19 @@ class Home extends Component {
     super(props);
 
     this.state = {
-      counters: []
+        endDate : "May 31, 2018 02:15:00"
     };
   }
 
   componentDidMount(){
-    var clock = new FlipClock($('.your-clock'));
+    var date = new Date(this.state.endDate); //Month Days, Year HH:MM:SS
+    var now = new Date();
+    var diff = (date.getTime() / 1000) - (now.getTime() / 1000);
+
+    var clock = $('.your-clock').FlipClock(diff, {
+        clockFace: 'DailyCounter',
+        countdown: true
+    });
   }
   render() {
     return (
