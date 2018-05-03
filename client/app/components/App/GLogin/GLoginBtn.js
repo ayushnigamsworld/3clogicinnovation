@@ -5,11 +5,13 @@ class GLoginBtn extends Component {
     constructor(props){
         super(props);
         this.state = {
-            clientId : '1042050654775-1moave7qaqr8tvtpialrqh7ntgggpd43.apps.googleusercontent.com'
+            clientId : '1042050654775-1moave7qaqr8tvtpialrqh7ntgggpd43.apps.googleusercontent.com',
+            
         }
     }
 
     responseGoogle(response){
+
         console.log(response);
     }
 
@@ -18,7 +20,7 @@ class GLoginBtn extends Component {
             <div>
                 <GoogleLogin
                     clientId = {this.state.clientId}
-                    buttonText="Login"
+                    buttonText="Join in"
                     className='show-modal show-signup-in-modal button btn-blue'
                     onSuccess={this.responseGoogle}
                     onFailure={this.responseGoogle}
