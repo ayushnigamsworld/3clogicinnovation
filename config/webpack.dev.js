@@ -20,7 +20,7 @@ module.exports = merge(commonConfig, {
   },
 
   devServer: {
-    contentBase: './client/public',
+    contentBase: './client/New Folder',
     historyApiFallback: true,
     stats: 'minimal' // none (or false), errors-only, minimal, normal (or true) and verbose
   }
