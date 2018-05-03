@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import 'whatwg-fetch';
 
 class Home extends Component {
   constructor(props) {
@@ -8,20 +7,25 @@ class Home extends Component {
     this.state = {
       counters: []
     };
-
-    // this.newCounter = this.newCounter.bind(this);
-    // this.incrementCounter = this.incrementCounter.bind(this);
-    // this.decrementCounter = this.decrementCounter.bind(this);
-    // this.deleteCounter = this.deleteCounter.bind(this);
-
-    // this._modifyCounter = this._modifyCounter.bind(this);
   }
 
+  componentDidMount(){
+    var clock = new FlipClock($('.your-clock'));
+  }
   render() {
     return (
-      <>
-        Hello World!
-      </>
+    <div class="content-container">
+            <div class="left-image float-right">
+                <img src="https://cdn.dribbble.com/users/14374/screenshots/3147608/programer.gif" class="left-image-0"/>
+                <pre class="dynamic-content dark"></pre>
+            </div>
+            <div class="right-content">
+                <div class="your-clock">
+                </div>
+                <div class="inline-block">
+            </div>
+            </div>
+    </div>
     );
   }
 }
