@@ -8,8 +8,10 @@ class App extends Component{
   render(){
     return(
       <div  className='responsive-page homepage'>
-          <Header/>
-          <Home/>
+          <section className="first-section" style={{'padding-top': 10}}>
+            <Header/>
+            <Home/>
+          </section>
       </div>
     );
   }
