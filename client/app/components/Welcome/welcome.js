@@ -10,7 +10,7 @@ class Welcome extends Component {
         return (
             <div>
 
-                <WelcomeHeader />
+                {/* <WelcomeHeader /> */}
                 <div className="sprint-global-container layout-container">
                     <div className="sprint">
                         <div className="top-cover">

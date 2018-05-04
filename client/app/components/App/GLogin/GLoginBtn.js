@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
 import { GoogleLogin } from 'react-google-login';
+import { Route, Redirect } from 'react-router';
+import {withRouter} from 'react-router';
 
 class GLoginBtn extends Component {
+
     constructor(props){
         super(props);
         this.state = {
             clientId : '1042050654775-1moave7qaqr8tvtpialrqh7ntgggpd43.apps.googleusercontent.com',
-            
-        }
+            isLoggedIn : false
+        };
+
+        this.responseGoogle = this.responseGoogle.bind(this);
     }
 
     responseGoogle(response){
-
-        console.log(response);
+        console.log('before -> '+ response);
+        this.props.history.push('/welcome');
+        console.log('after -> '+ response);
+        this.setState({
+            isLoggedIn : true
+        });
     }
 
     render() {
+
         return (
             <div>
                 <GoogleLogin
@@ -30,4 +40,4 @@ class GLoginBtn extends Component {
     }
 }
 
-export default GLoginBtn;
+export default withRouter(GLoginBtn);
