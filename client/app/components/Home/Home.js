@@ -19,6 +19,7 @@ class Home extends Component {
         countdown: true
     });
   }
+  
   render() {
     return (
     <div>
