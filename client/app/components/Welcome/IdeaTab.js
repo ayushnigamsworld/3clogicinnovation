@@ -13,7 +13,7 @@ class IdeaTab extends Component {
         };
     }
 
-    componentDidMount() {
+    componentDidMount() {  
         let ideaService = new IdeaService();
         let existingIdeas = ideaService.getIdea(cookies.get('userId'));
         existingIdeas.then(

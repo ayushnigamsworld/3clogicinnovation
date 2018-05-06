@@ -1,13 +1,14 @@
-
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 class UserService {
 
-    saveUser(creationData) {
+    saveUser(creationData, currentObj) {
 
         let profile = creationData.getBasicProfile();
         let authToken = creationData.getAuthResponse().id_token;
         let userId = profile.getId();
+        let successFulLogin = false;
 
-        fetch('http://localhost:8082/api/userDetails/exists/' + userId, {
+        fetch('../api/userDetails/exists/' + userId, {
             method: 'GET',
 
         }).then(
@@ -15,6 +16,7 @@ class UserService {
 
                 if (response.status !== 200) {
                     console.log('Looks like there was a problem. Status Code: ' + response.status);
+                    NotificationManager.error('Now we realize the importance of QA..', 'Oh shit, something wrong');
                     return;
                 }
 
@@ -34,7 +36,7 @@ class UserService {
                             }
                         };
 
-                        fetch('http://localhost:8082/api/userDetails', {
+                        fetch('../api/userDetails/exists/', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -43,17 +45,21 @@ class UserService {
 
                         }).then(res => {
                             console.log("Succesfully saved the user");
+                            currentObj.props.history.push('/welcome');
 
                         }).catch(err => err);
+                    }else {
+                        currentObj.props.history.push('/welcome');
                     }
                 });
             }
         ).catch(err => err);
+        return successFulLogin;
     }
 
     fetchCurrentUser(userId) {
 
-        fetch('http://localhost:8082/api/userDetails/' + userId, {
+        fetch('../api/userDetails/exists/' + userId, {
             method: 'GET',
 
         }).then(function (response) {

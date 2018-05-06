@@ -38,6 +38,7 @@
     "react-flip-clock": "^1.0.4",
     "react-google-login": "^3.2.1",
     "react-hot-loader": "^4.0.0",
+    "react-notifications": "^1.4.3",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "sass-loader": "^6.0.7",

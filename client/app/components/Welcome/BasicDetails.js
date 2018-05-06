@@ -31,9 +31,9 @@ class BasicDetails extends Component{
                         <div class="sprint-cta   two-phased ">
                             <div class="cta-object primary-cta">
                                 <div class="cell">
-                                    <a href="/sprints/alexa-hackathon/dashboard/c34524b/team/" class="blue-cta-link ">
-                                        VIEW YOUR TEAM
-                                    </a>
+                                    {/* <a href="" class="blue-cta-link ">
+                                        
+                                    </a> */}
                                 </div>
                             </div>
 

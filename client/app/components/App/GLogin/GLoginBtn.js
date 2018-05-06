@@ -28,9 +28,7 @@ class GLoginBtn extends Component {
         cookies.set('userId', googleUserId);
         cookies.set('access-token', authToken);
         let userService = new UserService();
-        userService.saveUser(response);
-
-        this.props.history.push('/welcome');
+        userService.saveUser(response, this);
     }
 
     render() {

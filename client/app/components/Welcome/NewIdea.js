@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 class NewIdea extends Component {
 
@@ -30,10 +31,15 @@ class NewIdea extends Component {
     }
 
     submitIdea() {
-        console.log("title " + this.state.titleIdeaValue);
-        console.log("detail " + this.state.detailIdeaValue);
 
-        fetch('http://localhost:8082/api/idea', {
+        let inputIdeaTitle = this.state.titleIdeaValue;
+        let inputIdeaDetail = this.state.detailIdeaValue;
+        if(inputIdeaTitle == null || inputIdeaTitle.length == 0 || inputIdeaDetail == null || inputIdeaDetail.length == 0){
+            NotificationManager.error('No, please play fair. Both title and description needed.', 'Missing Idea details.. ');
+            return;
+        }
+
+        fetch('../api/userDetails/exists/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -41,12 +47,20 @@ class NewIdea extends Component {
             body: JSON.stringify({
                 userId: cookies.get('userId'),
                 idea: {
-                    title: this.state.titleIdeaValue,
-                    description: this.state.detailIdeaValue
+                    title: inputIdeaTitle,
+                    description: inputIdeaDetail
                 }
             }),
-        }).then(res => {
-            console.log("Succesfully send");
+        }).then(function (response) {
+
+            if (response.status == 200) {
+                NotificationManager.success('You have successfully added the idea', 'Good Luck !!');
+                
+            }else {
+                NotificationManager.error('Some error occured. You know whom to contact.', 'Click me to do nothing!', 5000, () => {
+                    alert('callback');
+                });
+            }
         }).catch(err => err);
     }
 
@@ -80,6 +94,7 @@ class NewIdea extends Component {
                 <button onClick={this.submitIdea} class="btn waves-effect waves-light" name="action">Submit
                             <i class="material-icons right">-></i>
                 </button>
+                <NotificationContainer/>
             </div>
         );
     }
