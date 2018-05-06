@@ -28,7 +28,7 @@ class LeftPanel extends Component {
                             </a> */}
                             <a class="tab-e no-underline-hover">
                                 <span class="tab tab-simple dark tab-a ">
-                                    Evaluation
+                                    Idea Submission
                                 </span>
                             </a>
                             <div class="clear"></div>

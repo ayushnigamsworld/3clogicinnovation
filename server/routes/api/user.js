@@ -2,6 +2,7 @@ const MemberSchema = require('../../models/UserModel');
 
 module.exports = (app) => {
 
+    // get all
     app.get('/api/userDetails', (req, res, next) => {
         MemberSchema.find()
           .exec()
@@ -9,12 +10,13 @@ module.exports = (app) => {
           .catch((err) => next(err));
     });
 
-    app.get('/api/userDetails/:email', (req, res, next) => {
+    // get on basis of userId
+    app.get('/api/userDetails/:userId', (req, res, next) => {
         
-        let requestEmail = req.params.email;
+        let requestUserId = req.params.userId;
         let query = MemberSchema.where(
             {
-                email : requestEmail
+                userId : requestUserId
             }
         );
 
@@ -24,6 +26,26 @@ module.exports = (app) => {
           .catch((err) => next(err));
     });
 
+    app.get('/api/userDetails/exists/:userId', (req, res, next) => {
+
+        let requestUserId = req.params.userId;
+        let query = MemberSchema.where(
+            {
+                userId : requestUserId
+            }
+        );
+        MemberSchema.count(query, function(err, c){
+            if(c > 0){
+                res.json(true)
+            }
+            else{
+                res.json(false);
+            }
+        });
+    });
+
+
+    // save a user
     app.post('/api/userDetails', function (req, res, next) {
         const userModel = new MemberSchema(req.body);
     

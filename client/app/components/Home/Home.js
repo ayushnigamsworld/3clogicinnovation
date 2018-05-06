@@ -23,15 +23,15 @@ class Home extends Component {
   render() {
     return (
     <div>
-        <div class="content-container">
-                <div class="left-image float-right">
-                    <img src="https://cdn.dribbble.com/users/14374/screenshots/3147608/programer.gif" class="left-image-0"/>
-                    <pre class="dynamic-content dark"></pre>
+        <div className="content-container">
+                <div className="left-image float-right">
+                    <img src="https://cdn.dribbble.com/users/14374/screenshots/3147608/programer.gif" className="left-image-0"/>
+                    <pre className="dynamic-content dark"></pre>
                 </div>
-                <div class="right-content">
-                    <div class="your-clock">
+                <div className="right-content">
+                    <div className="your-clock">
                     </div>
-                    <div class="inline-block">
+                    <div className="inline-block">
                     </div>
                 </div>
         </div>

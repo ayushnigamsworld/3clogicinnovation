@@ -8,7 +8,6 @@ class DescriptiveDetails extends Component{
         return (
             <div class="sprint-body" id="sprint-body">
                 <div class="responsive-container">
-                    <LeftPanel/>
                     <CenterPanel/>
                 </div>
             </div>    
