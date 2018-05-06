@@ -16,18 +16,11 @@ import {
 class App extends Component{
 
   render(){
-
     return(
-      <div className='responsive-page homepage'>
-          <section className="first-section" style={{'paddingTop': 10}}>
+        <>
             <Header/>
-            
-              <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route exact path="/welcome" component={Welcome}/>
-              </Switch>
-          </section>
-      </div>
+            <Home/>
+        </>
     );
   }
 }

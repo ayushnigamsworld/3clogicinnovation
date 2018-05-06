@@ -11,15 +11,8 @@ import {
 import App from './components/App/App';
 import NotFound from './components/App/NotFound';
 
-import Home from './components/Home/Home';
-
-import HelloWorld from './components/HelloWorld/HelloWorld';
-
-import './styles/styles.scss';
-
 render((
-  <Router>
-    <App>
-    </App>
-  </Router>
+  <>
+    <App></App>
+  </>
 ), document.getElementById('app'));
