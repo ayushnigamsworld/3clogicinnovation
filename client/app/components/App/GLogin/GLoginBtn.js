@@ -5,7 +5,9 @@ import {withRouter} from 'react-router';
 import Cookies from 'universal-cookie';
 import UserService from '../../../services/userService';
 import { userInfo } from 'os';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 const cookies = new Cookies();
+
 
 class GLoginBtn extends Component {
 
@@ -24,10 +26,21 @@ class GLoginBtn extends Component {
         let profile = response.getBasicProfile();
         let googleUserId = profile.getId();
         let authToken = response.getAuthResponse().id_token;
+        let emailId = profile.getEmail();
+
+        if(!String(emailId).includes("@3clogic.com")) {
+            NotificationManager.error('No personal email please or else it may get hacked.', 'Only 3CLogic Email Id allowed.');
+            return;
+        }
 
         cookies.set('userId', googleUserId);
         cookies.set('access-token', authToken);
+        
         let userService = new UserService();
+        let name = profile.getName();
+        this.setState({
+            userName : 'Hey, '+ name
+        });
         userService.saveUser(response, this);
     }
 

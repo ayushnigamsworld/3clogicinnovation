@@ -94,7 +94,6 @@ class NewIdea extends Component {
                 <button onClick={this.submitIdea} class="btn waves-effect waves-light" name="action">Submit
                             <i class="material-icons right">-></i>
                 </button>
-                <NotificationContainer/>
             </div>
         );
     }

@@ -12,6 +12,7 @@ import {
   Switch,
   withRouter
 } from 'react-router-dom';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 class App extends Component{
 
@@ -27,6 +28,7 @@ class App extends Component{
                 <Route exact path="/welcome" component={Welcome}/>
               </Switch>
           </section>
+          <NotificationContainer/>
       </div>
     );
   }
