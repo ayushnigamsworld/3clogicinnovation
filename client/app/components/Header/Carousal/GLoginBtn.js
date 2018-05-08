@@ -19,18 +19,17 @@ class GLoginBtn extends Component {
         this.responseGoogle = this.responseGoogle.bind(this);
     }
 
-    responseGoogle(response){
+    responseGoogle(response) {
         console.log('Hello World');
-        // let profile = response.getBasicProfile();
-        // let googleUserId = profile.getId();
-        // let authToken = response.getAuthResponse().id_token;
+        let profile = response.getBasicProfile();
+        let googleUserId = profile.getId();
+        let authToken = response.getAuthResponse().id_token;
 
-        // cookies.set('userId', googleUserId);
-        // cookies.set('access-token', authToken);
-        // let userService = new UserService();
-        // userService.saveUser(response);
-
-        // this.props.history.push('/welcome');
+        cookies.set('userId', googleUserId);
+        cookies.set('access-token', authToken);
+        let userService = new UserService();
+        userService.saveUser(response);
+        //this.props.history.push('/welcome');
     }
 
     render() {

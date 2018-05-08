@@ -7,7 +7,7 @@ class UserService {
         let authToken = creationData.getAuthResponse().id_token;
         let userId = profile.getId();
 
-        fetch('http://localhost:8082/api/userDetails/exists/' + userId, {
+        fetch('../api/userDetails/exists/' + userId, {
             method: 'GET',
 
         }).then(
@@ -34,7 +34,7 @@ class UserService {
                             }
                         };
 
-                        fetch('http://localhost:8082/api/userDetails', {
+                        fetch('../api/userDetails', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ class UserService {
 
     fetchCurrentUser(userId) {
 
-        fetch('http://localhost:8082/api/userDetails/' + userId, {
+        fetch('../api/userDetails/' + userId, {
             method: 'GET',
 
         }).then(function (response) {
