@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import IdeaCard from './IdeaCard';
 
-class Content extends Component {
+class Ideas extends Component {
 
     constructor(props){
         super(props);
@@ -20,4 +20,4 @@ class Content extends Component {
     }
 }
  
-export default Content;
+export default Ideas;
