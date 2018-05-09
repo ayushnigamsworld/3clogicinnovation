@@ -1,30 +1,43 @@
 import React, { Component } from 'react';
-import WelcomeHeader from '../Header/WelcomeHeader';
-import BasicDetails from './BasicDetails';
-import CarouselImage from '../../../public/assets/img/demoCarouselImage.jpg';
-import DescriptiveDetails from './DescriptiveDetails';
 
+import './Welcome.css';
+import SideNav from './SideNav';
+import IdeaCard from './IdeaCard';
+import Content from './Content';
 class Welcome extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            ideas : [
+                {
+                    title: 'My first Idea'
+                },
+                {
+                    title: 'My second Idea'
+                },
+                {
+                    title: 'My third Idea'
+                }
+            ]
+        }
+    }
+
+    componentDidMount() {
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    }
 
     render() {
         return (
-            <div>
-
-                {/* <WelcomeHeader /> */}
-                <div className="sprint-global-container layout-container">
-                    <div className="sprint">
-                        <div className="top-cover">
-                            <div className="cover">
-                                <div className="banner-image" style={{ backgroundImage : `url(${CarouselImage})` }}>
-                                </div>
-                            </div>
-                            <BasicDetails/>
-                            <DescriptiveDetails/>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <div className="wrapper">
+            <SideNav/>
+            <Content ideas = {this.state.ideas}/>
+        </div>
         );
     };
 }

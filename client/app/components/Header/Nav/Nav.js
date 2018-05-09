@@ -10,7 +10,7 @@ class Nav extends Component{
 
     render(){
         return(
-        <nav className="navbar navbar-expand-lg fixed-top scrolling-navbar">
+        <nav className="navbar navbar-expand-lg fixed-top scrolling-navbar nav-header-transparency">
         <div className="container">
           <div className="navbar-header">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
