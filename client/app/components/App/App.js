@@ -12,14 +12,18 @@ import {
   Switch,
   withRouter
 } from 'react-router-dom';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 class App extends Component{
 
   render(){
     return(
         <>
-            <Header/>
-            <Home/>
+            <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route exact path="/welcome" component={Welcome}/>
+            </Switch>
+            <NotificationContainer/>
         </>
     );
   }

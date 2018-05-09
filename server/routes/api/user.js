@@ -1,58 +1,59 @@
 const MemberSchema = require('../../models/UserModel');
-const {OAuth2Client} = require('google-auth-library');
+const { OAuth2Client } = require('google-auth-library');
 const CLIENT_ID = '1042050654775-1moave7qaqr8tvtpialrqh7ntgggpd43.apps.googleusercontent.com';
 const client = new OAuth2Client(CLIENT_ID);
 
 module.exports = (app) => {
 
-    // get all
-    app.get('/api/userDetails', (req, res, next) => {
-        
-        MemberSchema.find()
-          .exec()
-          .then((user) => res.json(user))
-          .catch((err) => next(err));
-    });
-
     // get on basis of userId
-    app.get('/api/userDetails/:userId', (req, res, next) => {
-        
-        let requestUserId = req.params.userId;
-        let query = MemberSchema.where(
-            {
-                userId : requestUserId
-            }
-        );
+    app.get('/api/user/:userId', (req, res, next) => {
 
-        MemberSchema.findOne(query)
-          .exec()
-          .then((user) => res.json(user))
-          .catch((err) => next(err));
+        let userFound = getMemberByUserId(req.params.userId);
+        res.json(userFound);
     });
 
     // save a user
-    app.post('/api/userDetails', function (req, res, next) {
-        
-        const userModel = new MemberSchema(req.body);        
-        verify(userModel['authorization']['accessToken'], function(){
-            
-            userModel.save()
-                .then(() => res.json(userModel))
-                .catch((err) => next(err));
-        });
-    });
+    app.post('/api/user', function (req, res, next) {
 
-    async function verify(token, callBack) {
-        
-        const ticket = await client.verifyIdToken({
-            idToken: token,
-            audience: CLIENT_ID,
-        });
-        const payload = ticket.getPayload();
-        const userid = payload['sub'];
-        const domain = payload['hd'];
-        if(userid !== null && domain == "3clogic.com") {
-            callBack();
-        }
-    }
+        const userModel = new MemberSchema(req.body);
+        if( getMemberById(userModel['userId'] ) != null ) {
+
+            verify(userModel['authorization']['accessToken'], function () {
+
+                userModel.save()
+                    .then(() => res.json(userModel))
+                    .catch((err) => next(err));
+            });
+        } 
+    });
 };
+
+function getMemberById(uniqueId) {
+
+    let query = MemberSchema.where(
+        {
+            _id: uniqueId
+        }
+    );
+
+    MemberSchema.findOne(query)
+        .exec()
+        .then((user) => { 
+            console.log("User get from _id "+ user); return user
+        })
+        .catch((err) => { return null });
+}
+
+async function verify(token, callBack) {
+
+    const ticket = await client.verifyIdToken({
+        idToken: token,
+        audience: CLIENT_ID,
+    });
+    const payload = ticket.getPayload();
+    const userid = payload['sub'];
+    const domain = payload['hd'];
+    if (userid !== null && domain == "3clogic.com") {
+        callBack();
+    }
+}

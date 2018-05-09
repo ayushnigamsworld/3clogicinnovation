@@ -20,16 +20,15 @@ class GLoginBtn extends Component {
     }
 
     responseGoogle(response) {
-        console.log('Hello World');
-        let profile = response.getBasicProfile();
-        let googleUserId = profile.getId();
-        let authToken = response.getAuthResponse().id_token;
 
-        cookies.set('userId', googleUserId);
-        cookies.set('access-token', authToken);
         let userService = new UserService();
-        userService.saveUser(response);
-        //this.props.history.push('/welcome');
+        userService.saveUser(response, function(userReceived) {
+            
+            console.log("user received "+ userReceived);
+            cookies.set('user_id', userReceived["_id"]);
+            cookies.set('access_token', userReceived["authorization"]["access-token"]);
+        });
+        this.props.history.push('/welcome');
     }
 
     render() {
@@ -48,4 +47,4 @@ class GLoginBtn extends Component {
     }
 }
 
-export default GLoginBtn;
+export default withRouter(GLoginBtn);

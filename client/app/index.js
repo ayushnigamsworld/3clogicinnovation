@@ -12,7 +12,7 @@ import App from './components/App/App';
 import NotFound from './components/App/NotFound';
 
 render((
-  <>
+  <Router>
     <App></App>
-  </>
+  </Router>
 ), document.getElementById('app'));
