@@ -7,7 +7,10 @@ const MemberSchema = new mongoose.Schema({
   email : String,
   usernameAlias : String,
   category : String,
-  role : String,
+  role : {
+    type: String,
+    default: 'ROLE_MEMEBER'
+  },
   authorization : {
       accessToken : String,
       refreshToken : String
