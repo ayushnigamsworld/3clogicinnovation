@@ -41,7 +41,7 @@ class WhyParticipate extends Component{
                 </div>
                 <div className="col-md-6 col-lg-4 col-xs-12 padding-none">
                   <div className="services-item wow fadeInDown" data-wow-delay="0.6s">
-                    <div className="icon">
+                    <div className="icon">0
                       <i className="lni-envelope"></i>
                     </div>
                     <div className="services-content">

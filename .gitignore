@@ -13,6 +13,9 @@ logs
 *.log
 npm-debug.log*
 
+# idea files
+.idea/
+
 # OS stuff
 Desktop.ini
 ehthumbs.db
