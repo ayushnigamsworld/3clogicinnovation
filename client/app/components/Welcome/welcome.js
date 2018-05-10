@@ -6,6 +6,7 @@ import IdeaCard from './IdeaCard';
 import Content from './Content';
 import SubmitIdea from './SubmitIdea';
 import IdeaService from '../../services/ideaService';
+import UserService from '../../services/userService';
 
 const apiUrl = "../api/allIdeas";
 
@@ -45,6 +46,10 @@ class Welcome extends Component {
             }
         ]
         }
+    }
+
+    componentWillMount(){
+
     }
 
     componentDidMount() {
