@@ -16,30 +16,36 @@ module.exports = (app) => {
     app.post('/api/user', function (req, res, next) {
 
         const userModel = new MemberSchema(req.body);
-        if( getMemberById(userModel['userId'] ) != null ) {
-
-            verify(userModel['authorization']['accessToken'], function () {
-
+        getMemberById( userModel, res, function() {
+            
+            verify(userModel['authorization']['accessToken'], function (){
+                
                 userModel.save()
                     .then(() => res.json(userModel))
                     .catch((err) => next(err));
             });
-        } 
+
+        });
     });
 };
 
-function getMemberById(uniqueId) {
+function getMemberById(userModel, res, callBack) {
 
     let query = MemberSchema.where(
         {
-            _id: uniqueId
+            userId: userModel['userId']
         }
     );
-
+    res.json(userModel);
+    
     MemberSchema.findOne(query)
         .exec()
         .then((user) => { 
-            console.log("User get from _id "+ user); return user
+            
+            console.log("User get from _id "+ user);
+            if(user == null) {
+                callBack();
+            }
         })
         .catch((err) => { return null });
 }

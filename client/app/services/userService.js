@@ -26,9 +26,17 @@ class UserService {
             },
             body: JSON.stringify(userModel),
 
-        }).then(res => {
-            callBack(res.body);
+        }).then(function (response) {
 
+            if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code: ' + response.status);
+                return;
+            }
+
+            response.json().then(function (data) {
+                callBack(data);
+            });
+            
         }).catch(err => err);
     };
 

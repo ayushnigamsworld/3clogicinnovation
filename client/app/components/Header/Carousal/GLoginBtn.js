@@ -22,13 +22,13 @@ class GLoginBtn extends Component {
     responseGoogle(response) {
 
         let userService = new UserService();
+        let currentObj = this;
         userService.saveUser(response, function(userReceived) {
             
-            console.log("user received "+ userReceived);
-            cookies.set('user_id', userReceived["_id"]);
-            cookies.set('access_token', userReceived["authorization"]["access-token"]);
+            cookies.set('user_id', userReceived["userId"]);
+            cookies.set('access_token', userReceived["authorization"]["accessToken"]);
+            currentObj.props.history.push('/welcome');
         });
-        this.props.history.push('/welcome');
     }
 
     render() {
