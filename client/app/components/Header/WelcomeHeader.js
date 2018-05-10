@@ -1,7 +1,5 @@
 import React,{ Component } from 'react';
 
-import GLoginBtn from '../App/GLogin/GLoginBtn';
-
 import '../App/App.css';
 
 class WelcomeHeader extends Component {
