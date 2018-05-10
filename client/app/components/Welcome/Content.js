@@ -10,11 +10,13 @@ class Ideas extends Component {
         }
     }
 
-    render() { 
+    render() {
+        console.log("Ideas received from props "+ this.state.ideas); 
         return ( 
             <div id="content">
                 {
-                    this.state.ideas.map(idea => <IdeaCard myIdea={idea}/>)}
+                    this.state.ideas.map(idea =>  <IdeaCard myIdea={idea}/>)
+                }
             </div>
          )
     }
