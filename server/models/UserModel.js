@@ -9,11 +9,7 @@ const MemberSchema = new mongoose.Schema({
   category : String,
   role : {
     type: String,
-    default: 'ROLE_MEMEBER'
-  },
-  authorization : {
-      accessToken : String,
-      refreshToken : String
+    default: 'ROLE_MEMBER'
   }
 });
 

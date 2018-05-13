@@ -18,31 +18,61 @@ class GLoginBtn extends Component {
         };
 
         this.responseGoogle = this.responseGoogle.bind(this);
+        this.checkIf3CLogicUser = this.checkIf3CLogicUser.bind(this);
+        this.saveOrLoginUser = this.saveOrLoginUser.bind(this);
     }
 
     responseGoogle(response) {
 
-        let currentObj = this;
-        userService.saveUser(response, function(data) {
+      /**
+       * Algorithm:-
+       * 1.  Check If user is from 3C Logic
+       * 2. If not logout user
+       * 3. If correct check if user is already created?
+       * 4.  If not save the user and login
+       * @type {GLoginBtn}
+       */
 
-          if(data.status == 403){
-            console.log(`Access denied`);
-            NotificationManager.error("Oops! Are you not from 3C Logic?", 'Sorry at this point we are only considering 3C Logic employees. Join us now!!!');
-            return;
-          }
+        this.checkIf3CLogicUser(response)
+          .then(() => this.saveOrLoginUser(response))
+          .catch(err => {
+            console.log(`Error occurred`,err);
+            NotificationManager.error(err.message, 'Error Occurred');
+          })
+    }
+
+  checkIf3CLogicUser(response){
+    return new Promise((resolve, reject) => {
+        const profile = response.getBasicProfile();
+        if(!profile.getEmail().includes('@3clogic.com')){
+          reject(new Error(`Only 3C Logic Users are allowed for this hackathon`));
+        }
+
+        resolve(profile);
+    })
+  }
+
+  saveOrLoginUser(profile){
+      new Promise((resolve, reject) => {
+        console.log(`Profile is : `+profile);
+        let currentObj = this;
+        userService.saveUser(profile, function(data) {
 
           if(data.status != 200){
             console.log(`Error while logging in Please try again.`);
-            NotificationManager.error("Oops! Not able to login", 'Unfortunately, we are not able to login as of now. Please try after some time.');
+            NotificationManager.error("Unfortunately, we are not able to login as of now. Please try after some time.","Oops! Not able to login");
             return;
           }
 
           cookies.set('user_id', data.user["userId"]);
-          cookies.set('access_token', data.user["authorization"]["accessToken"]);
+          // cookies.set('access_token', data.user["authorization"]["accessToken"]);
           NotificationManager.success("Welcome! Join the force", 'Idea > Innovation > Success > Celebration');
           currentObj.props.history.push('/welcome');
         });
-    }
+      })
+  }
+
+
 
     render() {
 
