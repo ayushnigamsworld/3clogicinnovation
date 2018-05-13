@@ -4,17 +4,20 @@ class SideNav extends Component {
     constructor(props){
         super(props);
         console.log(props);
+        this.state = {loggedInUser: props.loggedInUser};
     }
 
-    render() { 
+    render() {
         return ( 
             <nav id="sidebar">
                 <div className="sidebar-header">
-                    <h3>Bootstrap Sidebar</h3>
+                  <div className="avatar">
+                    <img alt="" src="http://lorempixel.com/100/100/people/9/"></img>
+                  </div>
                 </div>
 
                 <ul className="list-unstyled components">
-                    <p>Dummy Heading</p>
+                    <p>{this.props.loggedInUser ? this.props.loggedInUser.name: ''}</p>
                     <li className="active">
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Idea</a>
                         <ul className="collapse list-unstyled" id="homeSubmenu">

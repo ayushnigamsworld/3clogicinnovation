@@ -17,7 +17,7 @@ class SubmitIdea extends Component {
         }
 
         this.updateTitleIdeaValue = this.updateTitleIdeaValue.bind(this);
-        this.updatedetailIdeaValue = this.updatedetailIdeaValue.bind(this);
+        this.updateDetailIdeaValue = this.updateDetailIdeaValue.bind(this);
         this.submitIdea = this.submitIdea.bind(this);
     }
 
@@ -28,7 +28,7 @@ class SubmitIdea extends Component {
         });
     }
 
-    updatedetailIdeaValue(value) {
+    updateDetailIdeaValue(value) {
 
         this.setState({
             text: value
@@ -52,10 +52,8 @@ class SubmitIdea extends Component {
                 }
             }),
         }).then(res => {
-            
             NotificationManager.success("Remember, Implementation is all we'll see..", 'Idea submission successful');
         }).catch(err => {
-            
             NotificationManager.error("Now we know the importance of QA", 'We messed up something.. Try again later..');
         });
     }
@@ -69,7 +67,7 @@ class SubmitIdea extends Component {
                     <label htmlFor="usr">Title:</label>
                     <input type="text" className="form-control" value={this.state.titleIdeaValue} onChange={this.updateTitleIdeaValue} />
                 </div>
-                <ReactQuill style={styleOfQuill} value={this.state.text} onChange={this.updatedetailIdeaValue} />
+                <ReactQuill style={styleOfQuill} value={this.state.text} onChange={this.updateDetailIdeaValue} />
                 <div className="form-group">
                     <div className="col-sm-offset-4 col-sm-10">
                         <button onClick={this.submitIdea} className="btn btn-default">Submit Idea</button>

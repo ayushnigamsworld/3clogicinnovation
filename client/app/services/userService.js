@@ -1,67 +1,64 @@
-
 class UserService {
 
-    saveUser(creationData, callBack) {
+  saveUser(creationData, callBack) {
 
-        let profile = creationData.getBasicProfile();
+    let profile = creationData.getBasicProfile();
 
-        if(!profile.getEmail().toLowerCase().includes('@3clogic.com')){
-          callBack({status: 403});
-          return;
+    if (!profile.getEmail().toLowerCase().includes('@3clogic.com')) {
+      callBack({status: 403});
+      return;
+    }
+    let authToken = creationData.getAuthResponse().id_token;
+
+    let userModel = {
+      userId: profile.getId(),
+      name: profile.getName(),
+      email: profile.getEmail(),
+      usernameAlias: "",
+      category: "",
+      role: 'ROLE_MEMBER',
+      authorization: {
+        accessToken: authToken,
+        refreshToken: ""
+      }
+    };
+
+    fetch('../api/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userModel),
+
+    }).then(function (response) {
+
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' + response.status);
+        callBack({status: response.status});
+      }
+
+      response.json().then(function (data) {
+        callBack({status: response.status, user: data});
+      });
+
+    }).catch(err => err);
+  };
+
+  fetchCurrentUser(userId) {
+    return new Promise((resolve, reject) => {
+      fetch('../api/user/' + userId, {
+        method: 'GET',
+      }).then(function (response) {
+        if (response.status !== 200) {
+          console.log('Looks like there was a problem. Status Code: ' + response.status);
+          reject(); return;
         }
-        let authToken = creationData.getAuthResponse().id_token;
-
-        let userModel = {
-            userId: profile.getId(),
-            name: profile.getName(),
-            email: profile.getEmail(),
-            usernameAlias: "",
-            category: "",
-            role:'ROLE_MEMBER',
-            authorization: {
-                accessToken: authToken,
-                refreshToken: ""
-            }
-        };
-
-        fetch('../api/user', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(userModel),
-
-        }).then(function (response) {
-
-            if (response.status !== 200) {
-                console.log('Looks like there was a problem. Status Code: ' + response.status);
-                callBack({status: response.status});
-            }
-
-            response.json().then(function (data) {
-                callBack({status: response.status, user: data});
-            });
-            
-        }).catch(err => err);
-    };
-
-    fetchCurrentUser(userId) {
-
-        fetch('../api/userDetails/' + userId, {
-            method: 'GET',
-
-        }).then(function (response) {
-
-            if (response.status !== 200) {
-                console.log('Looks like there was a problem. Status Code: ' + response.status);
-                return;
-            }
-
-            response.json().then(function (data) {
-                return data;
-            });
-        }).catch(err => err);
-    };
+        response.json().then(function (data) {
+          resolve(data);
+        });
+      }).catch(err => reject(err));
+    });
+  };
 }
 
 export default new UserService();
