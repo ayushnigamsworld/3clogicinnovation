@@ -11,9 +11,6 @@ class SideNav extends Component {
         return ( 
             <nav id="sidebar">
                 <div className="sidebar-header">
-                  <div className="avatar">
-                    <img alt="" src="http://lorempixel.com/100/100/people/9/"></img>
-                  </div>
                 </div>
 
                 <ul className="list-unstyled components">
@@ -21,7 +18,8 @@ class SideNav extends Component {
                     <li className="active">
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Idea</a>
                         <ul className="collapse list-unstyled" id="homeSubmenu">
-                            <li><a onClick={() => {this.props.currentTab('ALL_IDEAS')}}> All Ideas</a></li>
+
+                            <li><a hidden={!(this.props.loggedInUser && this.props.loggedInUser.role === 'ROLE_ADMIN')} onClick={() => {this.props.currentTab('ALL_IDEAS')}}> All Ideas</a></li>
                             <li><a onClick={() => {this.props.currentTab('SUBMIT_IDEA')}}>Add New Idea</a></li>
                             <li><a onClick={() => {this.props.currentTab('ALL_IDEAS')}}>My Ideas</a></li>
                         </ul>
