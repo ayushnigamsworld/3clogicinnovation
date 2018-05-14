@@ -2217,3 +2217,21 @@ a.back-to-top:hover, a.back-to-top:focus {
   color: #fff;
   border-color: #fff;
 }
+
+.ccc {
+font-size: 24px;
+color: rgb(65, 193, 244);
+}
+
+.innovation {
+font-size: 24px;
+color: rgb(244, 131, 66);
+}
+
+.div-text-center {
+  text-align: center;
+}
+
+.welcome-header {
+  color: rgb(239, 209, 74);
+}

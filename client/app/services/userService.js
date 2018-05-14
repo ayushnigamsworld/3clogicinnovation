@@ -4,8 +4,12 @@ class UserService {
     saveUser(creationData, callBack) {
 
         let profile = creationData.getBasicProfile();
+
+        if(!profile.getEmail().toLowerCase().includes('@3clogic.com')){
+          callBack({status: 403});
+          return;
+        }
         let authToken = creationData.getAuthResponse().id_token;
-        let userId = profile.getId();
 
         let userModel = {
             userId: profile.getId(),
@@ -13,6 +17,7 @@ class UserService {
             email: profile.getEmail(),
             usernameAlias: "",
             category: "",
+            role:'ROLE_MEMBER',
             authorization: {
                 accessToken: authToken,
                 refreshToken: ""
@@ -30,11 +35,11 @@ class UserService {
 
             if (response.status !== 200) {
                 console.log('Looks like there was a problem. Status Code: ' + response.status);
-                return;
+                callBack({status: response.status});
             }
 
             response.json().then(function (data) {
-                callBack(data);
+                callBack({status: response.status, user: data});
             });
             
         }).catch(err => err);
@@ -59,4 +64,4 @@ class UserService {
     };
 }
 
-export default UserService;
+export default new UserService();

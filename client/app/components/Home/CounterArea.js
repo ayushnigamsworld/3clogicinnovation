@@ -21,15 +21,15 @@ class CounterArea extends Component{
                     <div className="col-md-6 col-lg-4 col-xs-12 work-counter-widget text-center">
                         <div className="counter wow fadeInRight" data-wow-delay="0.6s">
                         <div className="icon"><i className="lni-timer"></i></div>
-                        <p>May 25 - 19, 2018</p>
-                        <span>09:00 AM – 09:00 AM</span>
+                        <p>May 31, 2018</p>
+                        <span>24 Hours</span>
                         </div>
                     </div>
                     <div className="col-md-6 col-lg-4 col-xs-12 work-counter-widget text-center">
                         <div className="counter wow fadeInRight" data-wow-delay="1.2s">
                         <div className="icon"><i className="lni-coffee-cup"></i></div>
-                        <p>Free Lunch & Snacks</p>
-                        <span>Don’t miss it</span>
+                        <p>Food & Refreshment</p>
+                        <span>Just eat and code</span>
                         </div>
                     </div>
                     </div>

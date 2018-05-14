@@ -3,7 +3,8 @@ import { GoogleLogin } from 'react-google-login';
 import { Route, Redirect } from 'react-router';
 import {withRouter} from 'react-router';
 import Cookies from 'universal-cookie';
-import UserService from '../../../services/userService';
+import userService from '../../../services/userService';
+import {NotificationManager} from 'react-notifications';
 import { userInfo } from 'os';
 const cookies = new Cookies();
 
@@ -21,13 +22,25 @@ class GLoginBtn extends Component {
 
     responseGoogle(response) {
 
-        let userService = new UserService();
         let currentObj = this;
-        userService.saveUser(response, function(userReceived) {
-            
-            cookies.set('user_id', userReceived["userId"]);
-            cookies.set('access_token', userReceived["authorization"]["accessToken"]);
-            currentObj.props.history.push('/welcome');
+        userService.saveUser(response, function(data) {
+
+          if(data.status == 403){
+            console.log(`Access denied`);
+            NotificationManager.error("Oops! Are you not from 3C Logic?", 'Sorry at this point we are only considering 3C Logic employees. Join us now!!!');
+            return;
+          }
+
+          if(data.status != 200){
+            console.log(`Error while logging in Please try again.`);
+            NotificationManager.error("Oops! Not able to login", 'Unfortunately, we are not able to login as of now. Please try after some time.');
+            return;
+          }
+
+          cookies.set('user_id', data.user["userId"]);
+          cookies.set('access_token', data.user["authorization"]["accessToken"]);
+          NotificationManager.success("Welcome! Join the force", 'Idea > Innovation > Success > Celebration');
+          currentObj.props.history.push('/welcome');
         });
     }
 

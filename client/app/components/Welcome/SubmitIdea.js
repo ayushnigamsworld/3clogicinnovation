@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // ES6
 import Cookies from 'universal-cookie';
+import {NotificationManager} from 'react-notifications';
+
 const cookies = new Cookies();
-import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 class SubmitIdea extends Component {
 
@@ -55,7 +56,7 @@ class SubmitIdea extends Component {
             NotificationManager.success("Remember, Implementation is all we'll see..", 'Idea submission successful');
         }).catch(err => {
             
-            NotificationManager.erro("Now we know the importance of QA", 'We messed up something.. Try again later..');
+            NotificationManager.error("Now we know the importance of QA", 'We messed up something.. Try again later..');
         });
     }
 

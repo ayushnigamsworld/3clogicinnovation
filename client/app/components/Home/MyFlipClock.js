@@ -3,6 +3,18 @@ import React, { Component } from 'react';
 export default class MyFlipClock extends Component {
     constructor(props){
         super(props);
+        this.startAt = '2018/05/31';
+    }
+
+    componentDidMount(){
+      jQuery('#clock').countdown(this.startAt,function(event){
+        var $this=jQuery(this).html(event.strftime(''
+          +'<div class="time-entry days"><span>%-D</span> Days</div> '
+          +'<div class="time-entry hours"><span>%H</span> Hours</div> '
+          +'<div class="time-entry minutes"><span>%M</span> Minutes</div> '
+          +'<div class="time-entry seconds"><span>%S</span> Seconds</div> '));
+      });
+
     }
 
     render(){
