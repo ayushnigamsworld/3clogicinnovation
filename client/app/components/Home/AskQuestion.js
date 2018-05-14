@@ -12,7 +12,7 @@ class AskQuestion extends Component{
             <div className="col-12">
               <div className="section-title-header text-center">
                 <h1 className="section-title wow fadeInUp" data-wow-delay="0.2s">Ask Question?</h1>
-                <p className="wow fadeInDown" data-wow-delay="0.2s">#3C Logic inNOvatiON</p>
+                <p className="wow fadeInDown" data-wow-delay="0.2s"><label class="ccc">#3C Logic</label> <label class="innovation">inNOvatiON</label></p>
               </div>
             </div>
           </div>
@@ -46,8 +46,9 @@ class AskQuestion extends Component{
                   </div>
                   <div id="questionTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#question">
                     <div className="card-body">
-                      No Worries! It's okay to not to have a brilliant idea everytime. Mentors (Dennis, Vikas etc) will
-                      also be providing some ideas which will be open to all and anybody can pick those and start building.
+                      No Worries! It's okay to not to have a brilliant idea everytime.
+                       As you know everyone can submit their ideas even who won't be able to participate actively (Denis, Vikas, Navya etc.).
+                       Those ideas will be open to all, you can select one of them and start building that.
                     </div>
                   </div>
                 </div>
@@ -78,7 +79,7 @@ class AskQuestion extends Component{
                   <div id="questionFour" className="collapse" aria-labelledby="headingThree" data-parent="#question">
                     <div className="card-body">
                       Ideas aligned with 3C Logic goals, cost effective, out of the box, scalable, trendsetter,
-                      customer centric will get some extra points
+                      customer centric will get some extra points. Rest is your idea in action and presentation.
                     </div>
                   </div>
                 </div>
@@ -139,7 +140,7 @@ class AskQuestion extends Component{
                   </div>
                   <div id="questionSix" className="collapse" aria-labelledby="headingThree" data-parent="#question">
                     <div className="card-body">
-                      The event will start at 11 AM morning and will be a 24 hour event. Exact schedule will be provided soon.
+                      The event will start on 31 May at 13:00 PM and will be a 24 hour event.
                     </div>
                   </div>
                 </div>

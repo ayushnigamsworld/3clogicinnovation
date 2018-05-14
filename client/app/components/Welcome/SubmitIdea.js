@@ -4,6 +4,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // ES6
 import Cookies from 'universal-cookie';
 import {NotificationManager} from 'react-notifications';
+import ideaService from "../../services/ideaService";
 
 const cookies = new Cookies();
 
@@ -13,7 +14,8 @@ class SubmitIdea extends Component {
         super(props);
         this.state = {
             titleIdeaValue: '',
-            text: ''
+            text: '',
+            loggedInUser: this.props.loggedInUser
         }
 
         this.updateTitleIdeaValue = this.updateTitleIdeaValue.bind(this);
@@ -38,24 +40,12 @@ class SubmitIdea extends Component {
     submitIdea() {
         console.log("title " + this.state.titleIdeaValue);
         console.log("detail " + this.state.text);
-
-        fetch('../api/idea', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                user: cookies.get('user_id'),
-                idea: {
-                    title: this.state.titleIdeaValue,
-                    description : this.state.text
-                }
-            }),
-        }).then(res => {
-            NotificationManager.success("Remember, Implementation is all we'll see..", 'Idea submission successful');
-        }).catch(err => {
-            NotificationManager.error("Now we know the importance of QA", 'We messed up something.. Try again later..');
-        });
+        ideaService.submitIdea(this.state.loggedInUser.userId,
+          {title: this.state.titleIdeaValue, detail: this.state.text},
+          (res) => {
+            console.log(`Response : ${res}`);
+            this.props.history.push('/welcome');
+          })
     }
 
     render() {

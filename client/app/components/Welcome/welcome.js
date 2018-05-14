@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Cookies from 'universal-cookie';
 
 import './Welcome.css';
 import SideNav from './SideNav';
-import IdeaCard from './IdeaCard';
 import Content from './Content';
 import SubmitIdea from './SubmitIdea';
 
 import ideaService from '../../services/ideaService';
 import userService from '../../services/userService';
-
-const apiUrl = "../api/allIdeas";
 
 const cookies = new Cookies();
 
@@ -32,13 +29,13 @@ class Welcome extends Component {
 
     getAllIdeas(){
       ideaService.getAllIdeas((ideas) => {
-        this.setState(() => {ideas});
+        this.setState(() => {ideas: ideas});
       });
     }
 
     getMyIdeas(){
-      ideaService.getMyIdeas(this.props.loggedInUser, (ideas) => {
-        this.setState(() => {ideas});
+      ideaService.getMyIdeas(this.state.loggedInUser.userId, (ideas) => {
+        this.setState(state => ({ideas: ideas}));
       });
     }
 
@@ -71,14 +68,15 @@ class Welcome extends Component {
     onNavChange(movedTo) {
         switch (movedTo) {
             case 'ALL_IDEAS': this.setState({ currentView: 'ALL_IDEAS' });
-            getAllIdeas();
+            this.getAllIdeas();
             break;
-            case 'MY_IDEAS': this.setState({ currentView: 'MY_IDEAS' });
-            getMyIdeas();
+            case 'MY_IDEAS':
+            this.getMyIdeas();
+            this.setState({ currentView: 'MY_IDEAS' });
             break;
             case 'SUBMIT_IDEA': this.setState({ currentView: 'SUBMIT_IDEA' }); break;
             case 'SUBMITTED_IDEAS': this.setState({ currentView: 'SUBMITTED_IDEAS' });
-            getSubmittedIdeas();
+            this.getSubmittedIdeas();
             break;
         }
     }
@@ -89,7 +87,7 @@ class Welcome extends Component {
             <div className="wrapper">
                 <SideNav currentTab={this.onNavChange.bind(this)} loggedInUser={this.state.loggedInUser} />
                 {(this.state.currentView === 'ALL_IDEAS') ? <Content ideas={this.state.ideas} /> : null}
-                {(this.state.currentView === 'SUBMIT_IDEA') ? <SubmitIdea /> : null}
+                {(this.state.currentView === 'SUBMIT_IDEA') ? <SubmitIdea loggedInUser={this.state.loggedInUser} /> : null}
                 {(this.state.currentView === 'SUBMITTED_IDEAS') ? <Content loggedInUser={this.state.loggedInUser} ideas={this.state.ideas} /> : null}
                 {(this.state.currentView === 'MY_IDEAS') ? <Content loggedInUser={this.state.loggedInUser} ideas={this.state.ideas} /> : null}
             </div>

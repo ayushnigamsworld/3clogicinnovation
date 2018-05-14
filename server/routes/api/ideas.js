@@ -29,12 +29,15 @@ module.exports = (app) => {
   });
 
   app.post(`/api/user/:userId/ideas`, function (req, res, next) {
-    const ideaModel = new IdeasSchema(req.body);
+    const ideaModel = new IdeasSchema(req.body.idea);
     ideaModel.userId = req.params.userId;
+
+    console.log(`Request : ${JSON.stringify(req.body.idea)}`)
+    console.log(ideaModel);
     ideaModel.save()
       .then(item => {
-        res.send(ideaModel);
-      })
-      .catch((err) => next(err));
+        res.json(item);
+        console.log(`After save : ${item}`)
+      }).catch((err) => next(err));
   });
 };
