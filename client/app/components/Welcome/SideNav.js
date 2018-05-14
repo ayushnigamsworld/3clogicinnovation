@@ -10,15 +10,14 @@ class SideNav extends Component {
     render() {
         return ( 
             <nav id="sidebar">
-                <div className="sidebar-header">
-                </div>
+                
 
                 <div className="sidebar-header welcome-header">
                   <b><p><label className="ccc">#3C</label>&nbsp;<label className="innovation">InNovatiON</label></p></b>
                 </div>
 
                 <ul className="list-unstyled components">
-                    <h3>{this.props.loggedInUser ? this.props.loggedInUser.name: ''}</h3>
+                    <h3>{this.props.loggedInUser ? this.props.loggedInUser.name : ''}</h3>
 
                     <li className="active">
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Ideas</a>

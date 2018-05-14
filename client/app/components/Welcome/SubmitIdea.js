@@ -44,7 +44,7 @@ class SubmitIdea extends Component {
           {title: this.state.titleIdeaValue, detail: this.state.text},
           (res) => {
             console.log(`Response : ${res}`);
-            this.props.history.push('/welcome');
+            // this.props.history.push('/welcome');
           })
     }
 

@@ -10,7 +10,7 @@ class Ideas extends Component {
     render() {
         console.log("Ideas received from props "+ this.props.ideas);
         return (
-            <div id="content" style={{marginTop: '10px', width: '500px'}}>
+            <div id="content" style={{width:  '-webkit-fill-available'}}>
                 {
                     this.props.ideas.map(idea =>  <IdeaCard myIdea={idea}/>)
                 }
