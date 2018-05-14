@@ -19,10 +19,6 @@ class Home extends Component {
     this.userId = cookies.get('user_id');
     console.log(`UserId : ${this.userId}`);
 
-    if (!this.userId) {
-      this.props.history.push('/');
-      return;
-    }
     userService
       .fetchCurrentUser(this.userId)
       .then((user) => {

@@ -45,6 +45,7 @@ class GLoginBtn extends Component {
     return new Promise((resolve, reject) => {
         const profile = response.getBasicProfile();
         if(!profile.getEmail().includes('@3clogic.com')){
+          response.disconnect((res) => console.log(`Disconnecting user : ${res}`));
           reject(new Error(`Only 3C Logic Users are allowed for this hackathon`));
         }
 
@@ -77,7 +78,7 @@ class GLoginBtn extends Component {
     render() {
 
         return (
-            <div hidden={!this.props.loggedInUser}>
+            <div hidden={this.props.loggedInUser}>
                 <GoogleLogin
                     clientId= {this.state.clientId}
                     buttonText= {this.state.userName}
