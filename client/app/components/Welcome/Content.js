@@ -12,8 +12,8 @@ class Ideas extends Component {
 
     render() {
         console.log("Ideas received from props "+ this.state.ideas); 
-        return ( 
-            <div id="content">
+        return (
+            <div id="content" style={{marginTop: '10px', width: '500px'}}>
                 {
                     this.state.ideas.map(idea =>  <IdeaCard myIdea={idea}/>)
                 }

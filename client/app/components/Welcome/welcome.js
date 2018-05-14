@@ -7,7 +7,7 @@ import IdeaCard from './IdeaCard';
 import Content from './Content';
 import SubmitIdea from './SubmitIdea';
 
-import IdeaService from '../../services/ideaService';
+import ideaService from '../../services/ideaService';
 import userService from '../../services/userService';
 
 const apiUrl = "../api/allIdeas";
@@ -19,38 +19,33 @@ class Welcome extends Component {
     constructor(props) {
         super(props);
         this.onNavChange = this.onNavChange.bind(this);
+        this.getAllIdeas = this.getAllIdeas.bind(this);
+        this.getMyIdeas = this.getMyIdeas.bind(this);
+        this.getSubmittedIdeas = this.getSubmittedIdeas.bind(this);
 
         this.state = {
-            currentView: 'ALL_IDEAS',
+            currentView: 'MY_IDEAS',
             loggedInUser: null,
-            ideas: [
-            {
-                idea: {
-                    title: 'My first Idea',
-                    description : 'scscsccdcdc'
-                },
-                _id: "5af3103cf36d2856a8ee992f",
-                user: "212212121221"
-            },
-            {
-                idea: {
-                    title: 'My second Idea',
-                    description : 'scscsccdcdc'
-                },
-                _id: "5af3103cf36d2856a8ee992f",
-                user: "212212121221"
-                
-            },
-            {
-                idea: {
-                    title: 'My third Idea',
-                    description : 'scscsccdcdc'
-                },
-                _id: "5af3103cf36d2856a8ee992f",
-                user: "212212121221"
-            }
-        ]
+            ideas: []
         }
+    }
+
+    getAllIdeas(){
+      ideaService.getAllIdeas((ideas) => {
+        this.setState(() => {ideas});
+      });
+    }
+
+    getMyIdeas(){
+      ideaService.getMyIdeas(this.props.loggedInUser, (ideas) => {
+        this.setState(() => {ideas});
+      });
+    }
+
+    getSubmittedIdeas(){
+        ideaService.getApprovedIdeas((ideas) => {
+          this.setState(() => {ideas});
+        })
     }
 
     componentWillMount(){
@@ -71,27 +66,20 @@ class Welcome extends Component {
 
     componentDidMount() {
 
-
-        // setTimeout(() => {
-        //     axios.get(apiUrl)
-        //       .then(ideas => {
-        //
-        //         console.log("Ideas from server "+ ideas.data);
-        //
-        //         this.setState({
-        //           ideas : [...ideas.data]
-        //         });
-        //
-        //       })
-        //       .catch(err => console.log(err));
-        // }, 2000);
     }
 
     onNavChange(movedTo) {
         switch (movedTo) {
-            case 'ALL_IDEAS': this.setState({ currentView: 'ALL_IDEAS' }); break;
+            case 'ALL_IDEAS': this.setState({ currentView: 'ALL_IDEAS' });
+            getAllIdeas();
+            break;
+            case 'MY_IDEAS': this.setState({ currentView: 'MY_IDEAS' });
+            getMyIdeas();
+            break;
             case 'SUBMIT_IDEA': this.setState({ currentView: 'SUBMIT_IDEA' }); break;
-            case 'SUBMITTED_IDEAS': this.setState({ currentView: 'SUBMITTED_IDEAS' }); break;
+            case 'SUBMITTED_IDEAS': this.setState({ currentView: 'SUBMITTED_IDEAS' });
+            getSubmittedIdeas();
+            break;
         }
     }
 
@@ -102,7 +90,8 @@ class Welcome extends Component {
                 <SideNav currentTab={this.onNavChange.bind(this)} loggedInUser={this.state.loggedInUser} />
                 {(this.state.currentView === 'ALL_IDEAS') ? <Content ideas={this.state.ideas} /> : null}
                 {(this.state.currentView === 'SUBMIT_IDEA') ? <SubmitIdea /> : null}
-                {(this.state.currentView === 'SUBMITTED_IDEAS') ? <Content ideas={this.state.ideas} /> : null}
+                {(this.state.currentView === 'SUBMITTED_IDEAS') ? <Content loggedInUser={this.state.loggedInUser} ideas={this.state.ideas} /> : null}
+                {(this.state.currentView === 'MY_IDEAS') ? <Content loggedInUser={this.state.loggedInUser} ideas={this.state.ideas} /> : null}
             </div>
         );
     };

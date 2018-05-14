@@ -21,7 +21,7 @@ class SideNav extends Component {
 
                             <li><a hidden={!(this.props.loggedInUser && this.props.loggedInUser.role === 'ROLE_ADMIN')} onClick={() => {this.props.currentTab('ALL_IDEAS')}}> All Ideas</a></li>
                             <li><a onClick={() => {this.props.currentTab('SUBMIT_IDEA')}}>Add New Idea</a></li>
-                            <li><a onClick={() => {this.props.currentTab('ALL_IDEAS')}}>My Ideas</a></li>
+                            <li><a onClick={() => {this.props.currentTab('MY_IDEAS')}}>My Ideas</a></li>
                         </ul>
                     </li>
                 </ul>

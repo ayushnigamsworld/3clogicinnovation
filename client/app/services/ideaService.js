@@ -20,9 +20,21 @@ class IdeaService {
         });
     }
 
-    submitIdea(ideaObject) {
+  getMyIdeas(loggedInUser, callBack) {
 
-        fetch('../api/idea', {
+    fetch(`../api/user/${loggedInUser.userId}/ideas`, {
+      method: 'GET'
+    }).then(function(response) {
+
+      response.json().then(function (data) {
+        callBack(data);
+      });
+    });
+  }
+
+    submitIdea(userId, ideaObject) {
+
+        fetch(`../api/user/${userId}/ideas`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -39,6 +51,17 @@ class IdeaService {
         }).catch(err => err);
 
     }
+
+  getApprovedIdeas(callback) {
+    fetch('../api/ideas?status=approved', {
+      method: 'GET'
+    }).then(function(response) {
+
+      response.json().then(function (data) {
+        callBack(data);
+      });
+    });
+  }
 }
 
-export default IdeaService;
+export default new IdeaService();
