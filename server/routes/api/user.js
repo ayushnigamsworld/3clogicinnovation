@@ -14,7 +14,8 @@ module.exports = (app) => {
     app.post('/api/user', function (req, res, next) {
         const profile = req.body;
         console.log(`profile: ${profile}`)
-        MemberSchema.findOne({email: profile.email}, (user) => {
+        MemberSchema.findOne({email: profile.email}, (err,user) => {
+          console.log(`User already exists? ${user}`)
           if(!user){
             MemberSchema.create(profile, (err, user) => {
               if(!err) {
