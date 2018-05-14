@@ -7,6 +7,8 @@ import Content from './Content';
 import SubmitIdea from './SubmitIdea';
 import IdeaService from '../../services/ideaService';
 import UserService from '../../services/userService';
+import Judges from './Judges';
+import Rules from './Rules';
 
 const apiUrl = "../api/allIdeas";
 
@@ -74,8 +76,8 @@ class Welcome extends Component {
             case 'ALL_IDEAS': this.setState({ currentView: 'ALL_IDEAS' }); break;
             case 'SUBMIT_IDEA': this.setState({ currentView: 'SUBMIT_IDEA' }); break;
             case 'SUBMITTED_IDEAS': this.setState({ currentView: 'SUBMITTED_IDEAS' }); break;
-
             case 'JUDGES': this.setState({ currentView: 'JUDGES' }); break;
+            case 'RULES': this.setState({ currentView: 'RULES' }); break;
         }
     }
 
@@ -87,8 +89,8 @@ class Welcome extends Component {
                 {(this.state.currentView === 'ALL_IDEAS') ? <Content ideas={this.state.ideas} /> : null}
                 {(this.state.currentView === 'SUBMIT_IDEA') ? <SubmitIdea /> : null}
                 {(this.state.currentView === 'SUBMITTED_IDEAS') ? <Content ideas={this.state.ideas} /> : null}
-
-            //    {(this.state.currentView === 'JUDGES') ? <Content ideas={this.state.ideas} /> : null}
+                {(this.state.currentView === 'JUDGES') ? <Judges ideas={this.state.ideas} /> : null}
+                {(this.state.currentView === 'RULES') ? <Rules ideas={this.state.ideas} /> : null}
             </div>
         );
     };
