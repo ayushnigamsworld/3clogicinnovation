@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Cookies from 'universal-cookie';
+import {withRouter} from 'react-router';
 
 import './Welcome.css';
 import SideNav from './SideNav';
@@ -20,8 +21,8 @@ class Welcome extends Component {
     this.onNavChange = this.onNavChange.bind(this);
     this.getAllIdeas = this.getAllIdeas.bind(this);
     this.getMyIdeas = this.getMyIdeas.bind(this);
-    this.getSubmittedIdeas = this.getSubmittedIdeas.bind(this);
-
+    this.getApprovedIdeas = this.getApprovedIdeas.bind(this);
+    this.moveToHome = this.moveToHome.bind(this);
     this.state = {
       currentView: 'MY_IDEAS',
       loggedInUser: null,
@@ -31,9 +32,7 @@ class Welcome extends Component {
 
   getAllIdeas() {
     ideaService.getAllIdeas((ideas) => {
-      this.setState(() => {
-        ideas: ideas
-      });
+      this.setState(state => ({ideas: ideas}));
     });
   }
 
@@ -43,11 +42,9 @@ class Welcome extends Component {
     });
   }
 
-  getSubmittedIdeas() {
+  getApprovedIdeas() {
     ideaService.getApprovedIdeas((ideas) => {
-      this.setState(() => {
-        ideas
-      });
+      this.setState(state => ({ideas: ideas}));
     })
   }
 
@@ -67,14 +64,19 @@ class Welcome extends Component {
       });
   }
 
+  moveToHome(){
+    this.props.history.push('/');
+  }
+
   componentDidMount() {
+    this.onNavChange('RULES');
   }
 
   onNavChange(movedTo) {
     switch (movedTo) {
       case 'ALL_IDEAS':
-        this.setState({currentView: 'ALL_IDEAS'});
         this.getAllIdeas();
+        this.setState({currentView: 'ALL_IDEAS'});
         break;
       case 'MY_IDEAS':
         this.getMyIdeas();
@@ -83,9 +85,9 @@ class Welcome extends Component {
       case 'SUBMIT_IDEA':
         this.setState({currentView: 'SUBMIT_IDEA'});
         break;
-      case 'SUBMITTED_IDEAS':
-        this.setState({currentView: 'SUBMITTED_IDEAS'});
-        this.getSubmittedIdeas();
+      case 'APPROVED_IDEAS':
+        this.getApprovedIdeas();
+        this.setState({currentView: 'APPROVED_IDEAS'});
         break;
       case 'JUDGES':
         this.setState({currentView: 'JUDGES'});
@@ -93,6 +95,7 @@ class Welcome extends Component {
       case 'RULES':
         this.setState({currentView: 'RULES'});
         break;
+      case 'MOVE_TO_HOME': this.moveToHome(); break;
     }
   }
 
@@ -102,8 +105,8 @@ class Welcome extends Component {
       <div className="wrapper">
         <SideNav currentTab={this.onNavChange.bind(this)} loggedInUser={this.state.loggedInUser}/>
         {(this.state.currentView === 'ALL_IDEAS') ? <Content ideas={this.state.ideas}/> : null}
-        {(this.state.currentView === 'SUBMIT_IDEA') ? <SubmitIdea loggedInUser={this.state.loggedInUser}/> : null}
-        {(this.state.currentView === 'SUBMITTED_IDEAS') ?
+        {(this.state.currentView === 'SUBMIT_IDEA') ? <SubmitIdea loggedInUser={this.state.loggedInUser} navTo={this.onNavChange}/> : null}
+        {(this.state.currentView === 'APPROVED_IDEAS') ?
           <Content loggedInUser={this.state.loggedInUser} ideas={this.state.ideas}/> : null}
         {(this.state.currentView === 'MY_IDEAS') ?
           <Content loggedInUser={this.state.loggedInUser} ideas={this.state.ideas}/> : null}

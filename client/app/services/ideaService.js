@@ -11,7 +11,7 @@ class IdeaService {
 
   getAllIdeas(callBack) {
 
-    fetch('../api/allIdeas', {
+    fetch('../api/ideas', {
       method: 'GET'
 
     }).then(function (response) {
@@ -64,12 +64,11 @@ class IdeaService {
   }
 
   getApprovedIdeas(callback) {
-    fetch('../api/ideas?status=approved', {
+    fetch('../api/ideas?status=APPROVED', {
       method: 'GET'
     }).then(function (response) {
-
       response.json().then(function (data) {
-        callBack(data);
+        callback(data);
       });
     });
   }

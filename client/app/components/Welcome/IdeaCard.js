@@ -1,42 +1,45 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class IdeaCard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            idea: this.props.myIdea
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      idea: this.props.myIdea
     }
+    this.archiveIdea = this.archiveIdea.bind(this);
+  }
 
-    archiveIdea(currentObj){
-        console.log("Clicked archive idea "+ currentObj.state.idea.title);
-        //call service to archive idea by sending id.
-    }
+  archiveIdea() {
+    console.log("Clicked archive idea " + this.state.idea.title);
+    //call service to archive idea by sending id.
+    alert('Complete this code!!!');
+  }
 
-    render() {
-        console.log("inside ideacard title " + this.state.idea.title);
-        return (
-            <div>
-                <div className="card">
-                    <div className="card-header" id="headingOne">
-                        <h5 className="mb-0">
-                            <button className="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                {this.state.idea.title}
-                            </button>
-                            <i hidden class="far fa-check-circle fa-1x"></i>
-                            <i onClick={() => { this.archiveIdea(this) }} class="fas fa-trash-alt"></i>
-                        </h5>
-                    </div>
-
-                    <div aria-labelledby="headingOne" data-parent="#accordion">
-                        <div className="card-body" dangerouslySetInnerHTML={{ __html: this.state.idea.description }}>
-                        </div>
-                    </div>
-                </div>
-                <br />
+  render() {
+    return (
+      <div>
+        <div className="card text-primary mb-auto border-info" style={{maxWith: '18rem'}}>
+          <div className="card-header">
+            <div className="row">
+              <div className="col-md-8" style={{position: 'relative'}}>
+                <h4>#!dea {this.props.index + 1}</h4>
+              </div>
+              <div className="col-md-4">
+                <i className="fas fa-archive" style={{float: 'right'}} onClick={this.archiveIdea}></i>
+              </div>
             </div>
-        )
-    }
+          </div>
+          <div className="card-body">
+            <h3 className="card-title">{this.state.idea.title}</h3>
+            <div className="card-text" style={{color: 'white'}}>
+              <div dangerouslySetInnerHTML={{__html: this.state.idea.description}}></div>
+            </div>
+          </div>
+        </div>
+        <br/>
+      </div>
+    )
+  }
 }
 
 export default IdeaCard;

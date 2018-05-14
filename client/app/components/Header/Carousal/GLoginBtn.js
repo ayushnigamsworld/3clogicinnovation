@@ -77,7 +77,7 @@ class GLoginBtn extends Component {
     render() {
 
         return (
-            <div>
+            <div hidden={!this.props.loggedInUser}>
                 <GoogleLogin
                     clientId= {this.state.clientId}
                     buttonText= {this.state.userName}

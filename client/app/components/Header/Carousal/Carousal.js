@@ -63,7 +63,7 @@ class Carousal extends Component {
                  <div className="carousel-caption d-md-block">
                       <h1 className="wow fadeInUp heading  " data-wow-delay=".6s"><label class="ccc">3C Logic</label> <label class="innovation">inNovatiON</label></h1>
                       <p className="fadeInUp wow carousal-quote" data-wow-delay=".6s">"The heart and soul of the company is creativity and innovation."</p>
-                      <GLoginBtn/>
+                      <GLoginBtn loggedInUser={this.props.loggedInUser}/>
                  </div>
                </div>
 

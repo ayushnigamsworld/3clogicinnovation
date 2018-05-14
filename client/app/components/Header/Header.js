@@ -13,8 +13,8 @@ class Header extends Component {
 
     return (
     <header id="header-wrap">
-      <Nav/>
-      <Carousal/>
+      <Nav loggedInUser={this.props.loggedInUser}/>
+      <Carousal loggedInUser={this.props.loggedInUser}/>
     </header>
     );
   }

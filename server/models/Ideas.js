@@ -7,7 +7,10 @@ const IdeasSchema = new Schema({
   description: String,
   status: String,
   userId: Number,
-  createdAt: Date
+  createdAt: {
+    type: Date,
+    default: new Date()
+  }
 });
 
 module.exports = mongoose.model('ideas', IdeasSchema);

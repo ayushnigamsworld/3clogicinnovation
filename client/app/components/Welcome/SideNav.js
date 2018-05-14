@@ -10,15 +10,20 @@ class SideNav extends Component {
     render() {
         return ( 
             <nav id="sidebar">
-                
-
                 <div className="sidebar-header welcome-header">
-                  <b><p><label className="ccc">#3C</label>&nbsp;<label className="innovation">InNovatiON</label></p></b>
+                  <div className="card bg-dark">
+                    <img className="card-img-top"
+                         src={this.props.loggedInUser? this.props.loggedInUser.image : ''}
+                         alt="Profile Image"
+                         style={{alignSelf: 'center', margin: '2px'}}/>
+                      <div className="card-body">
+                        <h5 className="card-title"  style={{alignSelf: 'center', margin: '2px'}}>{this.props.loggedInUser ? this.props.loggedInUser.name : ''}</h5>
+                      </div>
+                  </div>
                 </div>
 
                 <ul className="list-unstyled components">
-                    <h3>{this.props.loggedInUser ? this.props.loggedInUser.name : ''}</h3>
-
+                  <b><p><label className="ccc">#3C</label>&nbsp;<label className="innovation">InNovatiON</label></p></b>
                     <li className="active">
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Ideas</a>
                         <ul className="collapse list-unstyled" id="homeSubmenu">
@@ -30,7 +35,7 @@ class SideNav extends Component {
 
                         </ul>
                     </li>
-                    <li>
+                    <li hidden={true}>
                         <a onClick={() => {this.props.currentTab('TEAMS')}} href="#teamSubmenu" data-toggle="collapse" aria-expanded="false">Teams</a>
                         <ul className="collapse list-unstyled" id="teamSubmenu">
                             <li><a onClick={() => {this.props.currentTab('TEAM_1')}}> Team 1</a></li>
@@ -44,6 +49,7 @@ class SideNav extends Component {
                     </li>
                     <li><a onClick={() => {this.props.currentTab('JUDGES')}} aria-expanded="false">Judges</a></li>
                     <li><a onClick={() => {this.props.currentTab('RULES')}}  aria-expanded="false">Event Details</a></li>
+                    <li><a onClick={() => {this.props.currentTab('MOVE_TO_HOME')}}  aria-expanded="false">Back to home</a></li>
                 </ul>
             </nav>
          )

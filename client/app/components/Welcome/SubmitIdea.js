@@ -43,8 +43,8 @@ class SubmitIdea extends Component {
         ideaService.submitIdea(this.state.loggedInUser.userId,
           {title: this.state.titleIdeaValue, detail: this.state.text},
           (res) => {
-            console.log(`Response : ${res}`);
-            // this.props.history.push('/welcome');
+            console.log(`Response : ${res} and props : ${this.props}`);
+            this.props.navTo('MY_IDEAS');
           })
     }
 
