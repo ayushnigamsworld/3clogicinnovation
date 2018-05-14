@@ -1,18 +1,8 @@
-import React, { Component } from 'react';
-
-import Header from '../Header/Header';
+import React, {Component} from 'react';
 import Home from '../Home/Home';
-import WelcomeHeader from '../Header/WelcomeHeader';
 import Welcome from '../Welcome/welcome';
-import NotFound from '../App/NotFound';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch,
-  withRouter
-} from 'react-router-dom';
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+import {Route, Switch} from 'react-router-dom';
+import {NotificationContainer} from 'react-notifications';
 
 class App extends Component{
 

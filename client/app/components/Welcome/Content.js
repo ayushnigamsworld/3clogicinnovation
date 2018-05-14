@@ -5,17 +5,14 @@ class Ideas extends Component {
 
     constructor(props){
         super(props);
-        this.state = {
-            ideas : this.props.ideas
-        }
     }
 
     render() {
-        console.log("Ideas received from props "+ this.state.ideas); 
-        return ( 
-            <div id="content">
+        console.log("Ideas received from props "+ this.props.ideas);
+        return (
+            <div id="content" style={{width:  '-webkit-fill-available'}}>
                 {
-                    this.state.ideas.map(idea =>  <IdeaCard myIdea={idea}/>)
+                    this.props.ideas.map(idea =>  <IdeaCard myIdea={idea}/>)
                 }
             </div>
          )

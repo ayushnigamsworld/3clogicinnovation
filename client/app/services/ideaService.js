@@ -1,44 +1,78 @@
+import {NotificationManager} from "react-notifications";
+
 class IdeaService {
 
-    getIdea(userId){
+  getIdea(userId) {
 
-        return fetch('../api/idea/' + userId, {
-            method: 'GET'
-        });     
-    }
+    return fetch('../api/idea/' + userId, {
+      method: 'GET'
+    });
+  }
 
-    getAllIdeas(callBack) {
+  getAllIdeas(callBack) {
 
-        fetch('../api/allIdeas', {
-            method: 'GET'
+    fetch('../api/allIdeas', {
+      method: 'GET'
 
-        }).then(function(response) {
-            
-            response.json().then(function (data) {
-                callBack(data);
-            });
+    }).then(function (response) {
+
+      response.json().then(function (data) {
+        callBack(data);
+      });
+    });
+  }
+
+  getMyIdeas(userId, callBack) {
+
+    fetch(`../api/user/${userId}/ideas`, {
+      method: 'GET'
+    }).then(function (response) {
+      response.json().then(function (data) {
+        callBack(data);
+      });
+    });
+  }
+
+  submitIdea(userId, ideaObject, callback) {
+
+    fetch(`../api/user/${userId}/ideas`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        idea: {
+          title: ideaObject.title,
+          description: ideaObject.detail
+        }
+      }),
+    }).then(res => {
+      if(res.ok){
+        res.json().then(function (data) {
+          console.log(`Succesfully send : ${JSON.stringify(data)}`);
+          NotificationManager.success("Remember, Implementation is all we'll see..", 'Idea submission successful');
+          callback(data);
         });
-    }
+      }
 
-    submitIdea(ideaObject) {
 
-        fetch('../api/idea', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                userId: cookies.get('userId'),
-                idea: {
-                    title: ideaObject.titleIdeaValue,
-                    description: ideaObject.detailIdeaValue
-                }
-            }),
-        }).then(res => {
-            console.log("Succesfully send");
-        }).catch(err => err);
+    }).catch(err => {
+      // console.log(`Error while saving idea: ${JSON.stringify(ideaObject)}`)
+      NotificationManager.error("Now we know the importance of QA", 'We messed up something.. Try again later..');
+      callback(err);
+    });
+  }
 
-    }
+  getApprovedIdeas(callback) {
+    fetch('../api/ideas?status=approved', {
+      method: 'GET'
+    }).then(function (response) {
+
+      response.json().then(function (data) {
+        callBack(data);
+      });
+    });
+  }
 }
 
-export default IdeaService;
+export default new IdeaService();

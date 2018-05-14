@@ -7,36 +7,38 @@ module.exports = (app) => {
 
     // get on basis of userId
     app.get('/api/user/:userId', (req, res, next) => {
-
-        let userFound = getMemberByUserId(req.params.userId);
-        res.json(userFound);
+        findOneById(req.params.userId, (result) => res.json(result));
     });
 
     // save a user
     app.post('/api/user', function (req, res, next) {
-
-        const userModel = new MemberSchema(req.body);
-        getMemberById( userModel, res, function() {
-            
-            verify(userModel['authorization']['accessToken'], function (){
-                
-                userModel.save()
-                    .then(() => res.json(userModel))
-                    .catch((err) => next(err));
-            });
-
+        const profile = req.body;
+        console.log(`profile: ${profile}`)
+        MemberSchema.findOne({email: profile.email}, (user) => {
+          if(!user){
+            MemberSchema.create(profile, (err, user) => {
+              if(!err) {
+                res.json(user);
+                return;
+              }
+              console.log(err)
+              res.error(err);
+            })
+          }else {
+            res.json(user);
+          }
         });
     });
 };
 
-function getMemberById(userModel, res, callBack) {
+function getMemberById(userId, res) {
 
     let query = MemberSchema.where(
         {
-            userId: userModel['userId']
+            userId: userId
         }
     );
-    res.json(userModel);
+    // res.json(userModel);
     
     MemberSchema.findOne(query)
         .exec()
@@ -46,8 +48,17 @@ function getMemberById(userModel, res, callBack) {
             if(user == null) {
                 callBack();
             }
+
+            callBack(user);
         })
         .catch((err) => { return null });
+}
+
+function findOneById(userId, callback) {
+  MemberSchema.findOne({userId}, (err, result) => {
+    console.log('Inside findone : '+result);
+    callback(result);
+  });
 }
 
 async function verify(token, callBack) {

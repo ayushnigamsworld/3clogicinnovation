@@ -3,23 +3,30 @@ import React, { Component } from 'react';
 class SideNav extends Component {
     constructor(props){
         super(props);
+        console.log(props);
+        this.state = {loggedInUser: props.loggedInUser};
     }
 
-    render() { 
+    render() {
         return ( 
             <nav id="sidebar">
+                
+
                 <div className="sidebar-header welcome-header">
-                    <h3>World of Ideas</h3>
+                  <b><p><label className="ccc">#3C</label>&nbsp;<label className="innovation">InNovatiON</label></p></b>
                 </div>
 
                 <ul className="list-unstyled components">
-                    <p><label class="ccc">#3c</label><label class="innovation">InNovatiON</label></p>
+                    <h3>{this.props.loggedInUser ? this.props.loggedInUser.name : ''}</h3>
+
                     <li className="active">
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Ideas</a>
                         <ul className="collapse list-unstyled" id="homeSubmenu">
-                            <li><a onClick={() => {this.props.currentTab('ALL_IDEAS')}}> All Ideas</a></li>
+
+                            <li><a hidden={!(this.props.loggedInUser && this.props.loggedInUser.role === 'ROLE_ADMIN')} onClick={() => {this.props.currentTab('ALL_IDEAS')}}> All Ideas</a></li>
                             <li><a onClick={() => {this.props.currentTab('SUBMIT_IDEA')}}>Add New Idea</a></li>
-                            <li><a onClick={() => {this.props.currentTab('ALL_IDEAS')}}>My Ideas</a></li>
+                            <li><a onClick={() => {this.props.currentTab('APPROVED_IDEAS')}}>Approved Ideas</a></li>
+                            <li><a onClick={() => {this.props.currentTab('MY_IDEAS')}}>My Ideas</a></li>
 
                         </ul>
                     </li>
