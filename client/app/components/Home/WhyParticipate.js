@@ -16,6 +16,17 @@ class WhyParticipate extends Component{
                   </div>
                 </div>
               </div>
+
+              <div className="row">
+                 <div className="col-12">
+                                <div class="div-text-center">
+                                  <p className="wow fadeInUp" data-wow-delay="0.2s">
+                                    While there are so many reasons to participate i am just adding few of them. For sure you will have a great great time.
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
               <div className="row services-wrapper">
                 <div className="col-md-6 col-lg-4 col-xs-12 padding-none">
                   <div className="services-item wow fadeInDown" data-wow-delay="0.2s">
@@ -24,7 +35,9 @@ class WhyParticipate extends Component{
                     </div>
                     <div className="services-content">
                       <h3><a href="#">Get Inspired</a></h3>
-                      <p>Get inspired with lots of new ideas.</p>
+                      <p>
+                        Get inspired with lots of new ideas. Use your skills, creativity and awesomeness to help solve some of the toughest challenges facing.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -35,7 +48,7 @@ class WhyParticipate extends Component{
                     </div>
                     <div className="services-content">
                       <h3><a href="#">Work with people you admire</a></h3>
-                      <p>Lorem ipsum dolor sit amet, consectetuer commodo ligula eget dolor.</p>
+                      <p>Connect with other passionate developers and grow as a developer, make friends and have fun.</p>
                     </div>
                   </div>
                 </div>
@@ -46,7 +59,7 @@ class WhyParticipate extends Component{
                     </div>
                     <div className="services-content">
                       <h3><a href="#">Show Off your talent</a></h3>
-                      <p>Lorem ipsum dolor sit amet, consectetuer commodo ligula eget dolor.</p>
+                      <p>Demonstrate your skills, confidence and ideas. This is going to be a session with full of learning</p>
                     </div>
                   </div>
                 </div>
@@ -56,8 +69,8 @@ class WhyParticipate extends Component{
                       <i className="lni-cup"></i>
                     </div>
                     <div className="services-content">
-                      <h3><a href="#">Introduce new technologies</a></h3>
-                      <p>Lorem ipsum dolor sit amet, consectetuer commodo ligula eget dolor.</p>
+                      <h3><a href="#">Introduce new ways of doing</a></h3>
+                      <p>Push yourself, this is the chance to build a project you’ve had in your back pocket for a long time.</p>
                     </div>
                   </div>
                 </div>
@@ -68,7 +81,7 @@ class WhyParticipate extends Component{
                     </div>
                     <div className="services-content">
                       <h3><a href="#">Full Night Event</a></h3>
-                      <p>Lorem ipsum dolor sit amet, consectetuer commodo ligula eget dolor.</p>
+                      <p>Get ready for long, tiring yet amazing 24 hours battle of ideas.</p>
                     </div>
                   </div>
                 </div>
@@ -79,7 +92,7 @@ class WhyParticipate extends Component{
                     </div>
                     <div className="services-content">
                       <h3><a href="#">Free Swags</a></h3>
-                      <p>Lorem ipsum dolor sit amet, consectetuer commodo ligula eget dolor.</p>
+                      <p>T-shirts, Food, Music, Prizes, Fun.</p>
                     </div>
                   </div>
                 </div>
