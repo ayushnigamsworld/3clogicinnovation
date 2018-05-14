@@ -27,7 +27,6 @@ class IdeaService {
     fetch(`../api/user/${userId}/ideas`, {
       method: 'GET'
     }).then(function (response) {
-
       response.json().then(function (data) {
         callBack(data);
       });
