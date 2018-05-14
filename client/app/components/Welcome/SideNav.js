@@ -36,7 +36,7 @@ class SideNav extends Component {
                         </ul>
                     </li>
                     <li><a onClick={() => {this.props.currentTab('JUDGES')}} aria-expanded="false">Judges</a></li>
-                    <li><a onClick={() => {this.props.currentTab('RULES')}}  aria-expanded="false">Rules</a></li>
+                    <li><a onClick={() => {this.props.currentTab('RULES')}}  aria-expanded="false">Event Details</a></li>
                 </ul>
             </nav>
          )

@@ -5,7 +5,9 @@ class Rules extends Component {
         
         return(
             <div id="content">
-                This is the rules page...
+                  Remember that hackathon are like marathons. Some people go to compete but most people take part to better themselves and have fun.
+                  Whatever the reason is you're at a hackathon, make sure you're upholding the hacker spirit by collaborating with other teams,
+                  helping beginners, and having fun.
             </div>
         );
     }
