@@ -6,26 +6,26 @@ class Rules extends Component {
         return(
           <div id="content">
             <div class="container">
-              <div>
-                    Remember that hackathon are like marathons. Some people go to compete but most people take part to better themselves and have fun.
+              <div class="text-primary">
+                    <small>Remember that hackathon are like marathons. Some people go to compete but most people take part to better themselves and have fun.
                     Whatever the reason is you're at a hackathon, make sure you're upholding the hacker spirit by collaborating with other teams,
-                    helping beginners, and having fun.
+                    helping beginners, and having fun.</small>
               </div>
               <div class="list-group">
-                  <a href="#" class="list-group-item">
+                  <a href="#" class="list-group-item list-group-item-success">
                     <h4 class="list-group-item-heading">Purpose</h4>
                     <p class="list-group-item-text">
                         The Hackathon is an opportunity for you to innovate, ideate, and rapidly prototype a creative technological solution to a unique challenge.
                         The purpose of the event is to provide a platform for creativity where you can learn, make team bonding and have some fun with technologies.
                     </p>
                   </a>
-                  <a href="#" class="list-group-item">
+                  <a href="#" class="list-group-item list-group-item-info">
                     <h4 class="list-group-item-heading">Eligibility</h4>
                     <p class="list-group-item-text">
                         The Hackathon is open to all members of the 3clogic. Doesn't matter if you know the programming or not whether you are in Noida, in MD or working from home.
                     </p>
                   </a>
-                  <a href="#" class="list-group-item">
+                  <a href="#" class="list-group-item list-group-item-warning">
                     <h4 class="list-group-item-heading">How to Participate</h4>
                     <p class="list-group-item-text">
                       You just need to submit your ideas here or can email your idea to me(max 2 ideas/head are allowed). Judges will select top 7 ideas out of the provided list.
@@ -34,14 +34,14 @@ class Rules extends Component {
                       others who won't be building a team or you can simply join any team.
                     </p>
                   </a>
-                  <a href="#" class="list-group-item">
+                  <a href="#" class="list-group-item list-group-item-success">
                     <h4 class="list-group-item-heading">Team Creation</h4>
                     <p class="list-group-item-text">
                       Teams will be build to develop selected ideas. Owner/borrower of the idea can request other resources to join his/her team. Teams can have limited resources
                       from each team. Each team can have 6 to 8 resources. Please see available resources list for more details.
                     </p>
                   </a>
-                  <a href="#" class="list-group-item">
+                  <a href="#" class="list-group-item list-group-item-info">
                      <h4 class="list-group-item-heading">Judging Criteria</h4>
                      <p class="list-group-item-text">
                         Winners will be judged based on the following criteria, all being equally important:
@@ -53,7 +53,7 @@ class Rules extends Component {
                         </ul>
                      </p>
                   </a>
-                  <a href="#" class="list-group-item">
+                  <a href="#" class="list-group-item list-group-item-warning">
                      <h4 class="list-group-item-heading">Prizes</h4>
                      <p class="list-group-item-text">
                         Let it be a little surprise. It is going to be very exciting that's for sure...!!!
