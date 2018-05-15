@@ -72,6 +72,27 @@ class IdeaService {
       });
     });
   }
+
+  setArchiveIdea(ideaId){
+
+    fetch(`../api/ideas/${ideaId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then(res => {
+      if(res.ok) {
+        res.json().then(function (data) {
+
+          console.log(`Succesfully send : ${JSON.stringify(data)}`);
+          NotificationManager.success("Remember, You can submit two ideas at last..", 'Idea is now archived ..');
+        });
+      }
+    }).catch(err => {
+      
+      NotificationManager.error("Now we know the importance of QA", 'We messed up something.. Try again later..');
+    });
+  }
 }
 
 export default new IdeaService();

@@ -14,6 +14,10 @@ class IdeaTab extends Component {
     }
 
     componentDidMount() {
+        /*
+        TODO:
+        This is not used I suppose.. Confirm and remove..
+        */
         let ideaService = new IdeaService();
         let existingIdeas = ideaService.getIdea(cookies.get('userId'));
         existingIdeas.then(

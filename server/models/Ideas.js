@@ -10,7 +10,8 @@ const IdeasSchema = new Schema({
   createdAt: {
     type: Date,
     default: new Date()
-  }
+  },
+  isArchived: Boolean
 });
 
 module.exports = mongoose.model('ideas', IdeasSchema);

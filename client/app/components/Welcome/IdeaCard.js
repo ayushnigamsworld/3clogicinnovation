@@ -1,23 +1,28 @@
 import React, {Component} from 'react';
+import ideaService from "../../services/ideaService";
 
 class IdeaCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      idea: this.props.myIdea
+      idea: this.props.myIdea,
+      ideaArchived : false
     }
     this.archiveIdea = this.archiveIdea.bind(this);
   }
 
   archiveIdea() {
-    console.log("Clicked archive idea " + this.state.idea.title);
+    //console.log("Clicked archive idea " + this.state.idea._id);
+    ideaService.setArchiveIdea(this.state.idea._id);
+    this.setState({
+      ideaArchived: true
+    });
     //call service to archive idea by sending id.
-    alert('Complete this code!!!');
   }
 
   render() {
     return (
-      <div>
+      <div hidden = {this.state.ideaArchived}>
         <div className="card text-primary mb-auto border-info" style={{maxWith: '18rem'}}>
           <div className="card-header">
             <div className="row">
@@ -25,7 +30,7 @@ class IdeaCard extends Component {
                 <h4>#!dea {this.props.index + 1}</h4>
               </div>
               <div className="col-md-4">
-                <i className="fas fa-archive" style={{float: 'right'}} onClick={this.archiveIdea}></i>
+                <i className="fas fa-archive" style={{float: 'right'}} onClick={this.archiveIdea} ></i>
               </div>
             </div>
           </div>

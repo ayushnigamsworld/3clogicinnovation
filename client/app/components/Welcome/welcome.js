@@ -109,7 +109,7 @@ class Welcome extends Component {
         {(this.state.currentView === 'APPROVED_IDEAS') ?
           <Content loggedInUser={this.state.loggedInUser} ideas={this.state.ideas}/> : null}
         {(this.state.currentView === 'MY_IDEAS') ?
-          <Content loggedInUser={this.state.loggedInUser} ideas={this.state.ideas}/> : null}
+          <Content loggedInUser={this.state.loggedInUser} ideas={this.state.ideas} navTo={this.onNavChange}/> : null}
         {(this.state.currentView === 'JUDGES') ? <Judges ideas={this.state.ideas}/> : null}
         {(this.state.currentView === 'RULES') ? <Rules ideas={this.state.ideas}/> : null}
       </div>
