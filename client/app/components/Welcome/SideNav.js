@@ -10,8 +10,6 @@ class SideNav extends Component {
     render() {
         return ( 
             <nav id="sidebar">
-                
-
                 <div className="sidebar-header welcome-header">
                   <b><p><label className="ccc">#3C</label>&nbsp;<label className="innovation">InNovatiON</label></p></b>
                 </div>
@@ -44,6 +42,7 @@ class SideNav extends Component {
                     </li>
                     <li><a onClick={() => {this.props.currentTab('JUDGES')}} aria-expanded="false">Judges</a></li>
                     <li><a onClick={() => {this.props.currentTab('RULES')}}  aria-expanded="false">Event Details</a></li>
+                    <li><a onClick={() => {this.props.currentTab('RESOURCE_POOL')}}  aria-expanded="false">List of Resources</a></li>
                 </ul>
             </nav>
          )
