@@ -19,7 +19,7 @@ class WhyParticipate extends Component{
 
               <div className="row">
                  <div className="col-12">
-                                <div class="div-text-center">
+                                <div className="div-text-center">
                                   <p className="wow fadeInUp" data-wow-delay="0.2s">
                                     While there are so many reasons to participate i am just adding few of them. For sure you will have a great great time.
                                   </p>

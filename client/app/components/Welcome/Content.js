@@ -12,7 +12,7 @@ class Ideas extends Component {
         return (
             <div id="content" style={{width:  '-webkit-fill-available'}}>
                 {
-                    this.props.ideas.map(idea =>  <IdeaCard myIdea={idea}/>)
+                    this.props.ideas.map((idea, index) =>  <IdeaCard index={index} key={idea._id} myIdea={idea} navTo={this.props.navTo}/>)
                 }
             </div>
          )

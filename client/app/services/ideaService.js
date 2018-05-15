@@ -11,7 +11,7 @@ class IdeaService {
 
   getAllIdeas(callBack) {
 
-    fetch('../api/allIdeas', {
+    fetch('../api/ideas', {
       method: 'GET'
 
     }).then(function (response) {
@@ -64,13 +64,33 @@ class IdeaService {
   }
 
   getApprovedIdeas(callback) {
-    fetch('../api/ideas?status=approved', {
+    fetch('../api/ideas?status=APPROVED', {
       method: 'GET'
     }).then(function (response) {
-
       response.json().then(function (data) {
-        callBack(data);
+        callback(data);
       });
+    });
+  }
+
+  setArchiveIdea(ideaId){
+
+    fetch(`../api/ideas/${ideaId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then(res => {
+      if(res.ok) {
+        res.json().then(function (data) {
+
+          console.log(`Succesfully send : ${JSON.stringify(data)}`);
+          NotificationManager.success("Remember, You can submit two ideas at last..", 'Idea is now archived ..');
+        });
+      }
+    }).catch(err => {
+      
+      NotificationManager.error("Now we know the importance of QA", 'We messed up something.. Try again later..');
     });
   }
 }

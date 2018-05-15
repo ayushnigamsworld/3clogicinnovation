@@ -7,6 +7,7 @@ const MemberSchema = new mongoose.Schema({
   email : String,
   usernameAlias : String,
   category : String,
+  image: String,
   role : {
     type: String,
     default: 'ROLE_MEMBER'

@@ -12,7 +12,7 @@ class AskQuestion extends Component{
             <div className="col-12">
               <div className="section-title-header text-center">
                 <h1 className="section-title wow fadeInUp" data-wow-delay="0.2s">Ask Question?</h1>
-                <p className="wow fadeInDown" data-wow-delay="0.2s"><label class="ccc">#3C Logic</label> <label class="innovation">inNOvatiON</label></p>
+                <p className="wow fadeInDown" data-wow-delay="0.2s"><label className="ccc">#3C Logic</label> <label className="innovation">inNOvatiON</label></p>
               </div>
             </div>
           </div>

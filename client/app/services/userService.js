@@ -14,6 +14,7 @@ class UserService {
       userId: profile.getId(),
       name: profile.getName(),
       email: profile.getEmail(),
+      image: profile.getImageUrl(),
       usernameAlias: "",
       category: "",
       role: 'ROLE_MEMBER',

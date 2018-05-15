@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router';
 
 import './Nav.css';
 
@@ -6,6 +7,11 @@ class Nav extends Component{
 
     constructor(props){
         super(props);
+        this.moveToWelcome = this.moveToWelcome.bind(this);
+    }
+
+    moveToWelcome(){
+      this.props.history.push('/welcome');
     }
 
     render(){
@@ -38,6 +44,12 @@ class Nav extends Component{
                   Details
                 </a>
               </li>
+
+              <li className="nav-item" hidden={!this.props.loggedInUser} onClick={this.moveToWelcome}>
+                <a className="nav-link">
+                  <u>Dash</u>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -52,6 +64,9 @@ class Nav extends Component{
           <li>
             <a className="page-scroll" href="#details">Details</a>
           </li>
+          <li>
+            <a className="page-scroll" href="#details">Details</a>
+          </li>
         </ul>
 
       </nav>
@@ -59,4 +74,4 @@ class Nav extends Component{
     }
 }
 
-export default Nav;
+export default withRouter(Nav);
