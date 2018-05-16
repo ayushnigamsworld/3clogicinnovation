@@ -13,6 +13,7 @@ class IdeaCard extends Component {
 
   archiveIdea() {
     //console.log("Clicked archive idea " + this.state.idea._id);
+    
     ideaService.setArchiveIdea(this.state.idea._id);
     this.setState({
       ideaArchived: true
