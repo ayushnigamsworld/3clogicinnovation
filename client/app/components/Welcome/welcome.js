@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Cookies from 'universal-cookie';
-import {withRouter} from 'react-router';
+import { withRouter } from 'react-router';
 
 import './Welcome.css';
 import SideNav from './SideNav';
@@ -33,19 +33,19 @@ class Welcome extends Component {
 
   getAllIdeas() {
     ideaService.getAllIdeas((ideas) => {
-      this.setState(state => ({ideas: ideas}));
+      this.setState(state => ({ ideas: ideas }));
     });
   }
 
   getMyIdeas() {
     ideaService.getMyIdeas(this.state.loggedInUser.userId, (ideas) => {
-      this.setState(state => ({ideas: ideas}));
+      this.setState(state => ({ ideas: ideas }));
     });
   }
 
   getApprovedIdeas() {
     ideaService.getApprovedIdeas((ideas) => {
-      this.setState(state => ({ideas: ideas}));
+      this.setState(state => ({ ideas: ideas }));
     })
   }
 
@@ -61,11 +61,11 @@ class Welcome extends Component {
       .fetchCurrentUser(this.userId)
       .then((user) => {
         console.log("user details are : " + user);
-        this.setState(state => ({loggedInUser: user}));
+        this.setState(state => ({ loggedInUser: user }));
       });
   }
 
-  moveToHome(){
+  moveToHome() {
     this.props.history.push('/');
   }
 
@@ -77,26 +77,30 @@ class Welcome extends Component {
     switch (movedTo) {
       case 'ALL_IDEAS':
         this.getAllIdeas();
-        this.setState({currentView: 'ALL_IDEAS'});
+        this.setState({ currentView: 'ALL_IDEAS' });
         break;
       case 'MY_IDEAS':
         this.getMyIdeas();
-        this.setState({currentView: 'MY_IDEAS'});
+        this.setState({ currentView: 'MY_IDEAS' });
         break;
       case 'SUBMIT_IDEA':
-        this.setState({currentView: 'SUBMIT_IDEA'});
+        this.setState({ currentView: 'SUBMIT_IDEA' });
         break;
       case 'APPROVED_IDEAS':
         this.getApprovedIdeas();
-        this.setState({currentView: 'APPROVED_IDEAS'});
+        this.setState({ currentView: 'APPROVED_IDEAS' });
         break;
       case 'JUDGES':
-        this.setState({currentView: 'JUDGES'});
+        this.setState({ currentView: 'JUDGES' });
         break;
       case 'RULES':
-        this.setState({currentView: 'RULES'});
+        this.setState({ currentView: 'RULES' });
         break;
-      case 'MOVE_TO_HOME': this.moveToHome(); break;
+      case 'RESOURCE_POOL':
+        this.setState({ currentView: 'RESOURCE_POOL' });
+        break;
+      case 'MOVE_TO_HOME': this.moveToHome();
+        break;
     }
   }
 
@@ -104,15 +108,16 @@ class Welcome extends Component {
 
     return (
       <div className="wrapper">
-        <SideNav currentTab={this.onNavChange.bind(this)} loggedInUser={this.state.loggedInUser}/>
-        {(this.state.currentView === 'ALL_IDEAS') ? <Content ideas={this.state.ideas}/> : null}
-        {(this.state.currentView === 'SUBMIT_IDEA') ? <SubmitIdea loggedInUser={this.state.loggedInUser} navTo={this.onNavChange}/> : null}
+        <SideNav currentTab={this.onNavChange.bind(this)} loggedInUser={this.state.loggedInUser} />
+        {(this.state.currentView === 'ALL_IDEAS') ? <Content ideas={this.state.ideas} /> : null}
+        {(this.state.currentView === 'SUBMIT_IDEA') ? <SubmitIdea loggedInUser={this.state.loggedInUser} navTo={this.onNavChange} /> : null}
         {(this.state.currentView === 'APPROVED_IDEAS') ?
-          <Content loggedInUser={this.state.loggedInUser} ideas={this.state.ideas}/> : null}
+          <Content loggedInUser={this.state.loggedInUser} ideas={this.state.ideas} /> : null}
         {(this.state.currentView === 'MY_IDEAS') ?
-          <Content loggedInUser={this.state.loggedInUser} ideas={this.state.ideas} navTo={this.onNavChange}/> : null}
-        {(this.state.currentView === 'JUDGES') ? <Judges ideas={this.state.ideas}/> : null}
-        {(this.state.currentView === 'RULES') ? <Rules ideas={this.state.ideas}/> : null}
+          <Content loggedInUser={this.state.loggedInUser} ideas={this.state.ideas} navTo={this.onNavChange} /> : null}
+        {(this.state.currentView === 'JUDGES') ? <Judges /> : null}
+        {(this.state.currentView === 'RULES') ? <Rules /> : null}
+        {(this.state.currentView === 'RESOURCE_POOL') ? <Resources /> : null}
       </div>
     );
   };

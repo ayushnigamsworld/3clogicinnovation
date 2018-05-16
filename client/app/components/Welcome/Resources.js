@@ -4,7 +4,7 @@ class Resources extends Component {
     render() {
         return(
             <div id="content">
-
+                Hello I am resource page..
             </div>
         );
     }
