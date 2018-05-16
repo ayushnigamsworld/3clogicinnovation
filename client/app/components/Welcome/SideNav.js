@@ -36,14 +36,22 @@ class SideNav extends Component {
 
                 <ul className="list-unstyled components">
                   <b><p><label className="ccc">#3C</label>&nbsp;<label className="innovation">InNovatiON</label></p></b>
-                    <li className={(this.state.activeTab == 'IDEAS') ? 'active' : '' } onClick={() => { this.changeCurrentTab('IDEAS') }}>
+                    <li>
 
                         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Ideas</a>
                         <ul className="collapse list-unstyled" id="homeSubmenu">
-                            <li><a hidden={!(this.props.loggedInUser && this.props.loggedInUser.role === 'ROLE_ADMIN')} onClick={() => {this.props.currentTab('ALL_IDEAS')}}> All Ideas</a></li>
-                            <li><a onClick={() => {this.props.currentTab('SUBMIT_IDEA')}}>Add New Idea</a></li>
-                            <li><a onClick={() => {this.props.currentTab('APPROVED_IDEAS')}}>Approved Ideas</a></li>
-                            <li><a onClick={() => {this.props.currentTab('MY_IDEAS')}}>My Ideas</a></li>
+                            <li hidden={!(this.props.loggedInUser && this.props.loggedInUser.role === 'ROLE_ADMIN')} className={(this.state.activeTab == 'ALL_IDEAS') ? 'active' : '' }>
+                                <a onClick={() => {this.props.currentTab('ALL_IDEAS'); this.changeCurrentTab('ALL_IDEAS') }}> All Ideas</a>
+                            </li>
+                            <li className={(this.state.activeTab == 'SUBMIT_IDEA') ? 'active' : '' }>
+                                <a onClick={() => {this.props.currentTab('SUBMIT_IDEA'); this.changeCurrentTab('SUBMIT_IDEA') }}> Add New Idea</a>
+                            </li>
+                            <li className={(this.state.activeTab == 'APPROVED_IDEAS') ? 'active' : '' }>
+                                <a onClick={() => {this.props.currentTab('APPROVED_IDEAS'); this.changeCurrentTab('APPROVED_IDEAS') }}> Approved Ideas</a>
+                            </li>
+                            <li className={(this.state.activeTab == 'MY_IDEAS') ? 'active' : '' }>
+                                <a onClick={() => {this.props.currentTab('MY_IDEAS'); this.changeCurrentTab('MY_IDEAS') }}> My Ideas</a>
+                            </li>
                         </ul>
 
                     </li>
