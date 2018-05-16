@@ -8,6 +8,7 @@ import Content from './Content';
 import SubmitIdea from './SubmitIdea';
 import Judges from './Judges';
 import Rules from './Rules';
+import Resources from './Resources';
 
 import ideaService from '../../services/ideaService';
 import userService from '../../services/userService';
