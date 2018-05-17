@@ -37,7 +37,7 @@ class IdeaCard extends Component {
           </div>
           <div className="card-body">
             <h3 className="card-title">{this.state.idea.title}</h3>
-            <div className="card-text" style={{color: 'white'}}>
+            <div className="card-text">
               <div dangerouslySetInnerHTML={{__html: this.state.idea.description}}></div>
             </div>
           </div>
