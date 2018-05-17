@@ -47,16 +47,23 @@ class IdeaService {
         }
       }),
     }).then(res => {
+
+      console.log("response of submit "+ res.status);
       if(res.ok){
+        
         res.json().then(function (data) {
           console.log(`Succesfully send : ${JSON.stringify(data)}`);
           NotificationManager.success("Remember, Implementation is all we'll see..", 'Idea submission successful');
           callback(data);
         });
+
+      } else if(res.status == 400) {
+
+        NotificationManager.error("Free stuff comes at a cost.But you can archive the one you don't like", 'Only 2 ideas max allowed..');
       }
 
-
     }).catch(err => {
+      console.log("error of limit 2 ",err);
       // console.log(`Error while saving idea: ${JSON.stringify(ideaObject)}`)
       NotificationManager.error("Now we know the importance of QA", 'We messed up something.. Try again later..');
       callback(err);
