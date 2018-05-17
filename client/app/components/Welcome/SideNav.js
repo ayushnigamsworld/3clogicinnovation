@@ -73,7 +73,7 @@ class SideNav extends Component {
                     <li className={(this.state.activeTab == 'RULES') ? 'active' : '' }>
                         <a onClick={() => { this.props.currentTab('RULES'); this.changeCurrentTab('RULES') }}  aria-expanded="false">Event Details</a>
                     </li>
-                    <li hidden={!(this.props.loggedInUser && this.props.loggedInUser.role === 'ROLE_ADMIN')}  className={(this.state.activeTab == 'RESOURCE_POOL') ? 'active' : '' }>
+                    <li>
                         <a onClick={() => { this.props.currentTab('RESOURCE_POOL'); this.changeCurrentTab('RESOURCE_POOL') }}  aria-expanded="false">List of Resources</a>
                     </li>
                     <li><a onClick={() => {this.props.currentTab('MOVE_TO_HOME')}}  aria-expanded="false">Back to home</a></li>

@@ -44,29 +44,33 @@ class Resources extends Component {
                 <tr>
                   <td>
                   <table class="table table-bordered table-hover span2">
-                         <thead><tr><th>Tech Army</th></tr></thead>
+                         <thead><tr><th colspan="2">Tech Army</th></tr></thead>
                          <tbody>
-                           <tr><td>Deepak Kumar</td></tr>
-                           <tr><td>Gomtesh Jain</td></tr>
-                           <tr><td>Shahnawaj Khan</td></tr>
-                           <tr><td>Aditya Mishra</td></tr>
-                           <tr><td>Anita Yadav</td></tr>
-                           <tr><td>Ayush Nigam</td></tr>
-                           <tr><td>Devendra tiwari</td></tr>
-                           <tr><td>Krishna Nand Ranjan</td></tr>
-                           <tr><td>Manoj Kumar</td></tr>
-                           <tr><td>Nishant Thapliyal</td></tr>
-                           <tr><td>Pradeep Mishra</td></tr>
-                           <tr><td>Rohit Gupta</td></tr>
-                           <tr><td>Shailja Tiwari</td></tr>
-                           <tr><td>Shalini Verma</td></tr>
-                           <tr><td>Sumit Chopra</td></tr>
-                           <tr><td>Tripti Bansal</td></tr>
-                           <tr><td>Ajay Kumar Mehar</td></tr>
-                           <tr><td>Nikhil Agrawal</td></tr>
-                           <tr><td>Rajit Sharma</td></tr>
-                           <tr><td>Aayush Singh</td></tr>
-                           <tr><td>Rajat Nigam</td></tr>
+                           <tr><td>Deepak Kumar</td><td>Shailja Tiwari</td></tr>
+                           <tr><td>Gomtesh Jain</td><td>Shalini Verma</td></tr>
+                           <tr><td>Shahnawaj Khan</td><td>Sumit Chopra</td></tr>
+                           <tr><td>Aditya Mishra</td><td>Tripti Bansal</td></tr>
+                           <tr><td>Anita Yadav</td><td>Ajay Kumar Mehar</td></tr>
+                           <tr><td>Ayush Nigam</td><td>Nikhil Agrawal</td></tr>
+                           <tr><td>Devendra tiwari</td><td>Rajit Sharma</td></tr>
+                           <tr><td>Krishna Nand Ranjan</td><td>Aayush Singh</td></tr>
+                           <tr><td>Manoj Kumar</td><td>Rajat Nigam</td></tr>
+                           <tr><td>Nishant Thapliyal</td><td>Rahul Malhotra</td></tr>
+                           <tr><td>Pradeep Mishra</td><td>Swati Talwar</td></tr>
+                           <tr><td>Rohit Gupta</td><td>Anshuman Rawat</td></tr>
+
+                           <tr></tr>
+                           <tr></tr>
+                           <tr></tr>
+                           <tr></tr>
+                           <tr></tr>
+                           <tr></tr>
+                           <tr></tr>
+                           <tr></tr>
+                           <tr></tr>
+                           <tr></tr>
+                           <tr></tr>
+                           <tr></tr>
                          </tbody>
                   </table>
                   </td>
