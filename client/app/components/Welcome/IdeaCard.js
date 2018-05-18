@@ -39,7 +39,7 @@ class IdeaCard extends Component {
                 <h4>#!dea {this.props.index + 1}</h4>
               </div>
               <div hidden={!(this.props.loggedInUser && this.props.loggedInUser.role === 'ROLE_ADMIN' && this.state.idea.status !== 'shortlist' )} className="col-md-1">
-                <i className="far fa-check-circle" onClick={this.shortlistIdea}></i>
+              <i class="far fa-thumbs-up" onClick={this.shortlistIdea}></i>
               </div>
               <div hidden={!(this.props.loggedInUser && this.props.loggedInUser.role === 'ROLE_ADMIN' && this.state.idea.status === 'shortlist' )} className="col-md-1">
                 <i className="fas fa-check"></i>
