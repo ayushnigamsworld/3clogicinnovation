@@ -13,7 +13,7 @@ class App extends Component {
         setTimeout(function(){
             $("#loadingDiv").hide();
 
-        }, 4000);
+        }, 3000);
         console.log("inside app component did mount");
     }
 
