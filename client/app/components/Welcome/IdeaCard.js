@@ -6,7 +6,8 @@ class IdeaCard extends Component {
     super(props);
     this.state = {
       idea: this.props.myIdea,
-      ideaArchived : false
+      ideaArchived : false,
+      loggedInUser : this.props.loggedInUser
     }
     this.archiveIdea = this.archiveIdea.bind(this);
   }
@@ -22,6 +23,7 @@ class IdeaCard extends Component {
   }
 
   render() {
+    console.log("user received ideacard "+ this.props.loggedInUser);
     return (
       <div hidden = {this.state.ideaArchived}>
         <div className="card text-primary mb-auto border-info" style={{maxWith: '18rem'}}>
@@ -30,8 +32,11 @@ class IdeaCard extends Component {
               <div className="col-md-8" style={{position: 'relative'}}>
                 <h4>#!dea {this.props.index + 1}</h4>
               </div>
-              <div className="col-md-4">
-                <i className="fas fa-archive" style={{float: 'right'}} onClick={this.archiveIdea} ></i>
+              <div className="col-md-2">
+                <i className="fas fa-archive" onClick={this.archiveIdea} ></i>
+              </div>
+              <div className="col-md-2">
+                <i class="far fa-check-circle"></i>
               </div>
             </div>
           </div>

@@ -80,9 +80,9 @@ class IdeaService {
     });
   }
 
-  setArchiveIdea(ideaId){
+  setArchiveIdea(userId, ideaId){
 
-    fetch(`../api/ideas/${ideaId}`, {
+    fetch(`../api/user/${userId}/ideas/${ideaId}?status=archive`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

@@ -109,7 +109,7 @@ class Welcome extends Component {
     return (
       <div className="wrapper">
         <SideNav currentTab={this.onNavChange.bind(this)} loggedInUser={this.state.loggedInUser} />
-        {(this.state.currentView === 'ALL_IDEAS') ? <Content ideas={this.state.ideas} /> : null}
+        {(this.state.currentView === 'ALL_IDEAS') ? <Content loggedInUser={this.state.loggedInUser} ideas={this.state.ideas} /> : null}
         {(this.state.currentView === 'SUBMIT_IDEA') ? <SubmitIdea loggedInUser={this.state.loggedInUser} navTo={this.onNavChange} /> : null}
         {(this.state.currentView === 'APPROVED_IDEAS') ?
           <Content loggedInUser={this.state.loggedInUser} ideas={this.state.ideas} /> : null}
