@@ -32,7 +32,7 @@ module.exports = (app) => {
     });
 };
 
-function getMemberById(userId, res) {
+function getMemberById(userId) {
 
     let query = MemberSchema.where(
         {

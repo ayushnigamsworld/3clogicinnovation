@@ -1,4 +1,5 @@
 const IdeasSchema = require('../../models/Ideas');
+const MemberSchema = require('../../models/UserModel');
 
 module.exports = (app) => {
 
@@ -86,32 +87,28 @@ module.exports = (app) => {
       });
   });
 
-  //archive
-  app.put(`/api/ideas/:ideaId`, function (req, res, next) {
-
-    IdeasSchema.findById(req.params.ideaId, function (err, existingIdea) {
-
-      if (err) {
-        res.send(err);
-        return;
-      }
-
-      existingIdea.status = "archived";
-      existingIdea.save(function (err) {
-        if (err)
-          res.send(err);
-
-        res.json({ message: 'Archived Idea updated!' });
-      });
-    });
-  });
-
   //shortlist
   app.put(`/api/user/:userId/ideas/:ideaId`, function (req, res, next) {
 
     let userId = req.params.userId;
     let ideaStatus = req.query.status;
-    // Check here if user is admin or not...
+    if( ideaStatus == "shortlist" ) {
+
+      // Check here if user is admin or not... not working
+
+      let query = MemberSchema.where(
+        {
+            userId: userId
+        }
+      );
+      MemberSchema.findOne(query)
+        .exec()
+        .then((user) => { 
+            
+            console.log("User get  "+ user);
+        })
+      .catch((err) => { return null });
+    }
 
     console.log("idea status received " + ideaStatus);
 
@@ -124,9 +121,10 @@ module.exports = (app) => {
         return;
       }
 
-      existingIdea.status = "shortlist";
+      existingIdea.status = "" + ideaStatus + "";
+      console.log("after converting "+ existingIdea.status);
+
       existingIdea.save(function (err) {
-        console.log("error " + err);
         if (err)
           res.send(err);
 
