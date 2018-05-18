@@ -25,7 +25,7 @@ class Nav extends Component{
               <span className="icon-menu"></span>
               <span className="icon-menu"></span>
             </button>
-            <a href="index.html" className="navbar-brand nav-logo"><img src="assets/img/logo.png"  alt=""/></a>
+            <a className="navbar-brand nav-logo"><img style={{width : '125px'}} src="https://www.3clogic.com/hubfs/3clogic%20June2017%20Theme%20/Image/logo.svg?t=1526585719410"  alt=""/></a>
           </div>
           <div className="collapse navbar-collapse" id="main-navbar">
             <ul className="navbar-nav mr-auto w-100 justify-content-end">
