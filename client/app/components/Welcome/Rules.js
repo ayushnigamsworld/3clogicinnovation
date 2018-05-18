@@ -28,7 +28,7 @@ class Rules extends Component {
                   <a href="#" class="list-group-item list-group-item-warning">
                     <h4 class="list-group-item-heading">How to Participate</h4>
                     <p class="list-group-item-text">
-                      You just need to submit your ideas here or can email your idea to me(max 2 ideas/head are allowed). Judges will select top 7 ideas out of the provided list.
+                      You just need to submit your ideas here or can email your idea to me(max 2 ideas/head are allowed). Judges will select top 7 ideas (may be more) out of the provided list.
                       Once your idea is selected, you can ask other members to join your team. If they also like your idea, they can join your team and work with you.
                       Please remember, 23 May is the last date for submitting the ideas. In case you do not have any idea, you can pick one of the selected idea submitted by
                       others who won't be building a team or you can simply join any team.

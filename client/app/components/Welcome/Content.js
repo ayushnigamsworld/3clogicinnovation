@@ -5,9 +5,9 @@ class Ideas extends Component {
 
     constructor(props){
         super(props);
-        this.state({
+        this.state = {
             loggedInUser: this.props.loggedInUser
-        });
+        };
     }
 
     render() {

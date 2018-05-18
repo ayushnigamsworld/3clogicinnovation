@@ -100,6 +100,27 @@ class IdeaService {
       NotificationManager.error("Now we know the importance of QA", 'We messed up something.. Try again later..');
     });
   }
+
+  shortlistIdea(userId, ideaId){
+
+    fetch(`../api/user/${userId}/ideas/${ideaId}?status=shortlist`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    }).then(res => {
+      if(res.ok) {
+        res.json().then(function (data) {
+
+          console.log(`Succesfully send : ${JSON.stringify(data)}`);
+          NotificationManager.success("Thanks, for your time..", 'Idea is shortlisted ..');
+        });
+      }
+    }).catch(err => {
+      
+      NotificationManager.error("Now we know the importance of QA", 'We messed up something.. Try again later..');
+    });
+  }
 }
 
 export default new IdeaService();

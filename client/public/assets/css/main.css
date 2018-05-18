@@ -2381,3 +2381,65 @@ color: rgb(244, 131, 66);
     Notification Card css  ->end
     ------------------------------ 
 */
+
+th {
+ background-color:#efefef;
+}
+td {
+ white-space:nowrap;
+}
+
+@media (min-width: 780px;) and (max-width: 1200px;) {
+
+  .table-group .table {
+    margin:0px;
+  }
+
+  .table-group .table:first-child {
+    margin-top:20px;
+    margin-bottom:20px;
+  }
+
+  .table-group .table-bordered:first-child {
+    border-right-width:0;
+    border-top-right-radius:0;
+    border-bottom-right-radius:0;
+  }
+
+  .table-group .table:last-child {
+    margin-top:20px;
+  }
+
+  .table-group .table-bordered:last-child {
+    border-left-width:0;
+    border-top-left-radius:0;
+    border-bottom-left-radius:0;
+  }
+
+  .table-group .table-bordered:last-child td, .table-group .table-bordered:last-child th {
+    border-left-width:0;
+  }
+
+  .table-group .table-bordered:first-child thead:first-child tr:first-child>th:last-child, .table-group .table-bordered tbody:first-child tr:first-child>td:last-child, .table-group .table-bordered tbody:first-child tr:first-child>th:last-child {
+    border-top-right-radius:0;
+    border-bottom-right-radius:0;
+  }
+
+  .table-group .table-bordered:last-child thead:first-child tr:first-child>th:last-child, .table-group .table-bordered tbody:first-child tr:first-child>td:last-child, .table-group .table-bordered tbody:first-child tr:first-child>th:last-child {
+    border-top-left-radius:0;
+    border-bottom-left-radius:0;
+  }
+
+  .table-group .table:last-child {
+    margin-top:20px;
+  }
+
+  .table-group .table:nth-child(2) {
+    font-size:120%;
+  }
+
+  .table-group .table:nth-child(2) th, .table-group .table:nth-child(2) td {
+    padding:13px;
+  }
+
+}
