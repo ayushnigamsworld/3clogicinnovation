@@ -6,7 +6,7 @@ class Rules extends Component {
         return(
           <div id="content">
             <div class="container">
-              <div class="text-primary">
+              <div style={{color: 'rgb(255,0,23)'}}>
                     <small>Remember that hackathon are like marathons. Some people go to compete but most people take part to better themselves and have fun.
                     Whatever the reason is you're at a hackathon, make sure you're upholding the hacker spirit by collaborating with other teams,
                     helping beginners, and having fun.</small>

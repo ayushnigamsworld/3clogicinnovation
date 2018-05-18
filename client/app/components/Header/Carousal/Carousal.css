@@ -1,6 +1,11 @@
 .carousal-quote{
-    color: rgb(235, 252, 0);
-  /* -webkit-text-fill-color: rgb(255, 255, 255); Will override color (regardless of order) */
+    color: rgb(255, 255, 255);
+  /* -webkit-text-fill-color: rgb(255, 255, 255); Will override color (regardless of order)
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgb(214, 88, 21) ;
+  -webkit-text-stroke-color: rgb(214, 88, 21) ;*/
+
+}
+
+.carousal-code-wrapper {
+background: rgba(0,0,0,0.4) !important;
 }
