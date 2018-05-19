@@ -58,7 +58,7 @@ class Resources extends Component {
                            <tr><td>Nishant Thapliyal</td><td>Rahul Malhotra</td></tr>
                            <tr><td>Pradeep Mishra</td><td>Swati Talwar</td></tr>
                            <tr><td>Rohit Gupta</td><td>Anshuman Rawat</td></tr>
-                           <tr><td>David Morgan</td><td></td></tr>
+                           <tr><td>David Morgan</td><td>Chitwan Malhotra</td></tr>
                          </tbody>
                   </table>
                   </td>
