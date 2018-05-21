@@ -11,9 +11,9 @@ class App extends Component {
     componentDidMount() {
 
         setTimeout(function(){
-            $("#loadingDiv").hide();
+            $("#loadingDiv").remove();
 
-        }, 3000);
+        }, 2000);
         console.log("inside app component did mount");
     }
 
