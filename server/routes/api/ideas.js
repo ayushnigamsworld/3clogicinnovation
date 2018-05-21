@@ -66,7 +66,7 @@ module.exports = (app) => {
 
         console.log("count is "+ count);
 
-        if (count < 2) {
+        if (count < 20) {
 
           ideaModel.userId = req.params.userId;
           ideaModel.createdAt = new Date();
