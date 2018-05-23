@@ -20,7 +20,7 @@ module.exports = (app) => {
 
     } else {
 
-      IdeasSchema.find({}, null, {
+      IdeasSchema.find({'status': {$ne : "archive"}}, null, {
         sort: {
           createdAt: -1 //Sort by Date Added DESC
         }
