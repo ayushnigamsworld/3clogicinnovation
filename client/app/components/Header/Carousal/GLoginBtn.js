@@ -33,6 +33,7 @@ class GLoginBtn extends Component {
          * @type {GLoginBtn}
          */
         if(!response.getBasicProfile){
+            console.log(response);
             NotificationManager.error("Please check if cookies are enabled.", "Coudn't let you in.");
             return;
         }
