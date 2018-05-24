@@ -28,9 +28,9 @@ class Rules extends Component {
                   <a href="#" class="list-group-item list-group-item-warning">
                     <h4 class="list-group-item-heading">How to Participate</h4>
                     <p class="list-group-item-text">
-                      You just need to submit your ideas here or can email your idea to me(max 2 ideas/head are allowed). Judges will select top 7 ideas (may be more) out of the provided list.
+                      You just need to submit your ideas here or can email your idea to me. Judges will select top 7 ideas (may be more) out of the provided list.
                       Once your idea is selected, you can ask other members to join your team. If they also like your idea, they can join your team and work with you.
-                      Please remember, 23 May is the last date for submitting the ideas. In case you do not have any idea, you can pick one of the selected idea submitted by
+                      Please remember, 24 May is the last date for submitting the ideas. In case you do not have any idea, you can pick one of the selected idea submitted by
                       others who won't be building a team or you can simply join any team.
                     </p>
                   </a>
@@ -56,7 +56,12 @@ class Rules extends Component {
                   <a href="#" class="list-group-item list-group-item-warning">
                      <h4 class="list-group-item-heading">Prizes</h4>
                      <p class="list-group-item-text">
-                        Let it be a little surprise. It is going to be very exciting that's for sure...!!!
+                        <ul>
+                          <li>For the first time, other than the hackathon winner, 2 more teams  will also be rewarded (More chances to win :))</li>
+                          <li>Every member of the winning team will get the brand new Amazon Echo Dot. (Say Hello to Alexa...!!)</li>
+                          <li>Other 2 teams will get cash prizes for each of their team members.</li>
+                          <li>Not just for the teams, there are more prizes for individual as well. (Best Ideas, Best contributors and so on...)</li>
+                        </ul>
                      </p>
                    </a>
               </div>
