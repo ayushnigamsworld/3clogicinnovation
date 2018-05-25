@@ -43,7 +43,7 @@ class SideNav extends Component {
                             <li hidden={!(this.props.loggedInUser && this.props.loggedInUser.role === 'ROLE_ADMIN')} className={(this.state.activeTab == 'ALL_IDEAS') ? 'active' : '' }>
                                 <a onClick={() => {this.props.currentTab('ALL_IDEAS'); this.changeCurrentTab('ALL_IDEAS') }}> All Ideas</a>
                             </li>
-                            <li className={(this.state.activeTab == 'SUBMIT_IDEA') ? 'active' : '' }>
+                            <li hidden={true} className={(this.state.activeTab == 'SUBMIT_IDEA') ? 'active' : '' }>
                                 <a onClick={() => {this.props.currentTab('SUBMIT_IDEA'); this.changeCurrentTab('SUBMIT_IDEA') }}> Add New Idea</a>
                             </li>
                             <li className={(this.state.activeTab == 'APPROVED_IDEAS') ? 'active' : '' }>
