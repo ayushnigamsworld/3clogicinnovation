@@ -35,12 +35,23 @@ module.exports = (app) => {
   app.get('/api/user/:userId/ideas', (req, res, next) => {
 
     let userIdReceived = req.params.userId;
+    let statusOfIdea = req.query.status;
+    
+    let statusArr = ['shortlist'];
+    let queryObject = {};
+    if(statusOfIdea != 'shortlist') {
 
-    let query = IdeasSchema.where(
-      {
-        userId: userIdReceived,
-        status: { $in: ['new', 'shortlist'] }
-      });
+      statusArr = ['new', 'shortlist'];
+      queryObject.userId = userIdReceived;
+      queryObject.status = { $in: statusArr };
+
+    } else {
+      
+      queryObject.status = { $in: ['shortlist'] }
+    }
+
+
+    let query = IdeasSchema.where(queryObject);
 
     IdeasSchema.find(query, null, {
       sort: {

@@ -44,9 +44,9 @@ class Welcome extends Component {
   }
 
   getApprovedIdeas() {
-    ideaService.getApprovedIdeas((ideas) => {
+    ideaService.getApprovedIdeas(this.state.loggedInUser.userId, (ideas) => {
       this.setState(state => ({ ideas: ideas }));
-    })
+    });
   }
 
   componentWillMount() {

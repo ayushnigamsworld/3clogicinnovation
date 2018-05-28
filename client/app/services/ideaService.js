@@ -70,8 +70,8 @@ class IdeaService {
     });
   }
 
-  getApprovedIdeas(callback) {
-    fetch('../api/ideas?status=APPROVED', {
+  getApprovedIdeas(userId= '123456', callback) {
+    fetch(`../api/user/${userId}/ideas/?status=shortlist`, {
       method: 'GET'
     }).then(function (response) {
       response.json().then(function (data) {

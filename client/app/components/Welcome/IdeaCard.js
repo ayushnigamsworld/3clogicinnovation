@@ -35,17 +35,22 @@ class IdeaCard extends Component {
         <div className="card text-primary mb-auto border-info" style={{maxWith: '18rem'}}>
           <div className="card-header">
             <div className="row">
-              <div className="col-md-11" style={{position: 'relative'}}>
+              <div className="col-md-10" style={{position: 'relative'}}>
                 <h4>#!dea {this.props.index + 1}</h4>
               </div>
-              <div hidden={!(this.props.loggedInUser && this.props.loggedInUser.role === 'ROLE_ADMIN' && this.state.idea.status !== 'shortlist' )} className="col-md-1">
+              {/* <div hidden={!(this.props.loggedInUser && this.props.loggedInUser.role === 'ROLE_ADMIN' && this.state.idea.status !== 'shortlist' )} className="col-md-1">
               <i class="far fa-thumbs-up" onClick={this.shortlistIdea}></i>
               </div>
               <div hidden={!(this.props.loggedInUser && this.props.loggedInUser.role === 'ROLE_ADMIN' && this.state.idea.status === 'shortlist' )} className="col-md-1">
                 <i className="fas fa-check"></i>
-              </div>
-              <div className="col-md-1">
+              </div> */}
+              {/* <div className="col-md-1">
                 <i className="fas fa-archive" onClick={this.archiveIdea} ></i>
+              </div> */}
+              <div className="col-md-2" style={{paddingLeft: "59pX"}}>
+                {
+                  
+                }
               </div>
             </div>
           </div>
