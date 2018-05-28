@@ -5,7 +5,7 @@ class Resources extends Component {
         return(
             <div id="content" class="w-100">
               <div class="container table-group">
-              Each team should have maximum 2 and minimum 1 resource from each group.
+              Each team can have up to 4 resources (sum of experience should not exceed 30 Yrs) from Tech Army and should have maximum 2 and minimum 1 resource from each other group.
               <table class="table">
                 <tr>
                   <td>
@@ -59,6 +59,7 @@ class Resources extends Component {
                            <tr><td>Pradeep Mishra</td><td>Swati Talwar</td></tr>
                            <tr><td>Rohit Gupta</td><td>Anshuman Rawat</td></tr>
                            <tr><td>David Morgan</td><td>Chitwan Malhotra</td></tr>
+                           <tr><td>Hema Joshi</td><td></td></tr>
                          </tbody>
                   </table>
                   </td>
