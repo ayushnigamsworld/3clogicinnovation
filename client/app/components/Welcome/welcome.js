@@ -9,6 +9,7 @@ import SubmitIdea from './SubmitIdea';
 import Judges from './Judges';
 import Rules from './Rules';
 import Resources from './Resources';
+import Teams from './Teams';
 
 import ideaService from '../../services/ideaService';
 import userService from '../../services/userService';
@@ -70,7 +71,7 @@ class Welcome extends Component {
   }
 
   componentDidMount() {
-    this.onNavChange('RULES');
+    this.onNavChange('TEAMS');
   }
 
   onNavChange(movedTo) {
@@ -99,6 +100,9 @@ class Welcome extends Component {
       case 'RESOURCE_POOL':
         this.setState({ currentView: 'RESOURCE_POOL' });
         break;
+      case 'TEAMS':
+        this.setState({ currentView: 'TEAMS' });
+        break;
       case 'MOVE_TO_HOME': this.moveToHome();
         break;
     }
@@ -118,6 +122,7 @@ class Welcome extends Component {
         {(this.state.currentView === 'JUDGES') ? <Judges /> : null}
         {(this.state.currentView === 'RULES') ? <Rules /> : null}
         {(this.state.currentView === 'RESOURCE_POOL') ? <Resources /> : null}
+        {(this.state.currentView === 'TEAMS') ? <Teams /> : null}
       </div>
     );
   };

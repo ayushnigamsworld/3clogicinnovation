@@ -29,7 +29,7 @@ class Resources extends Component {
                         <tbody>
                           <tr><td>Damini Singhal</td></tr>
                           <tr><td>Pulkit Gupta</td></tr>
-                          <tr><td>Nidhi</td></tr>
+                          <tr><td>Nidhi Dagar</td></tr>
                           <tr><td>Ayush Goel</td></tr>
                           <tr><td>Kamlesh jaiswal</td></tr>
                           <tr><td>Nishita Jain</td></tr>
@@ -59,7 +59,7 @@ class Resources extends Component {
                            <tr><td>Pradeep Mishra</td><td>Swati Talwar</td></tr>
                            <tr><td>Rohit Gupta</td><td>Anshuman Rawat</td></tr>
                            <tr><td>David Morgan</td><td>Chitwan Malhotra</td></tr>
-                           <tr><td>Hema Joshi</td><td></td></tr>
+                           <tr><td>Hema Joshi</td><td>Smritta Singh</td></tr>
                          </tbody>
                   </table>
                   </td>

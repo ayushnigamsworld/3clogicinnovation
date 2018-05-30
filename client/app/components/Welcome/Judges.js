@@ -14,7 +14,7 @@ class Judges extends Component {
                   <h2>Meet The Panel of Judges.</h2>
                </div>
                <div>
-                  <p className="fadeInUp wow carousal-quote" data-wow-delay=".6s">
+                  <p className="fadeInUp wow" data-wow-delay=".6s">
                     No matter how good the science gets, there are problems that inevitably depend on judgement.
                   </p>
                </div>

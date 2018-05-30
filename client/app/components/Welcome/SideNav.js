@@ -7,7 +7,7 @@ class SideNav extends Component {
         this.state = 
         {
             loggedInUser: props.loggedInUser,
-            activeTab : 'RULES'
+            activeTab : 'TEAMS'
         };
         this.changeCurrentTab = this.changeCurrentTab.bind(this);
     }
@@ -55,17 +55,8 @@ class SideNav extends Component {
                         </ul>
 
                     </li>
-                    <li hidden={true}>
-                        <a onClick={() => {this.props.currentTab('TEAMS')}} href="#teamSubmenu" data-toggle="collapse" aria-expanded="false">Teams</a>
-                        <ul className="collapse list-unstyled" id="teamSubmenu">
-                            <li><a onClick={() => {this.props.currentTab('TEAM_1')}}> Team 1</a></li>
-                            <li><a onClick={() => {this.props.currentTab('TEAM_2')}}>Team 2</a></li>
-                            <li><a onClick={() => {this.props.currentTab('TEAM_3')}}>Team 3</a></li>
-                            <li><a onClick={() => {this.props.currentTab('TEAM_4')}}>Team 4</a></li>
-                            <li><a onClick={() => {this.props.currentTab('TEAM_5')}}>Team 5</a></li>
-                            <li><a onClick={() => {this.props.currentTab('TEAM_6')}}>Team 6</a></li>
-                            <li><a onClick={() => {this.props.currentTab('TEAM_7')}}>Team 7</a></li>
-                        </ul>
+                    <li>
+                        <a onClick={() => {this.props.currentTab('TEAMS'); this.changeCurrentTab('TEAMS') }} aria-expanded="false">Teams</a>
                     </li>
                     <li className={(this.state.activeTab == 'JUDGES') ? 'active' : '' }>
                         <a onClick={() => { this.props.currentTab('JUDGES'); this.changeCurrentTab('JUDGES')  }} aria-expanded="false">Judges</a>
