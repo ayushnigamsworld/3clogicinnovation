@@ -6,7 +6,7 @@ class Teams extends Component {
             <div id="content" class="w-100">
               <div class="container table-group">
               <table class="table table-bordered table-hover span2">
-                 <thead><tr><th>Stimuli</th><th>Deviants</th><th>Cluster Champs</th><th>No-Name</th></tr></thead>
+                 <thead><tr><th>Stimuli</th><th>Deviants</th><th>Cluster Champs</th><th>AI Parking</th></tr></thead>
                  <tbody>
                    <tr><td>Ayush Goel</td>      <td>Rajat Nigam</td>        <td>Kuldeep Yadav</td>      <td>Gomtesh Jain </td></tr>
                    <tr><td>Ayush Nigam</td>     <td>Aayush Singh</td>       <td>Sasmita Panda</td>      <td>Sumit Chopra</td></tr>
@@ -19,7 +19,7 @@ class Teams extends Component {
               </table>
 
               <table class="table table-bordered table-hover span2">
-                  <thead><tr><th>HackSlash</th><th>I We Ours (IVR's)</th><th>Hacking BADs</th><th>Gear:Automata</th></tr></thead>
+                  <thead><tr><th>HackSlash</th><th>I We Ours (IVR's)</th><th>Hacking Bad</th><th>Gear:Automata</th></tr></thead>
                   <tbody>
                     <tr><td>Shailja Tiwari</td>       <td> Swati </td>      <td>Devendra Tiwari</td>    <td>David Morgan </td></tr>
                     <tr><td>Pradeep Mishra *</td>       <td> Krishna</td>     <td> Ritesh Chopra</td>     <td> Nikhil Agarwal</td></tr>

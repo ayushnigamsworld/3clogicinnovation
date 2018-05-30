@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class MyFlipClock extends Component {
     constructor(props){
         super(props);
-        this.startAt = '2018/05/31';
+        this.startAt = '2018/05/31 12:00:00';
     }
 
     componentDidMount(){
